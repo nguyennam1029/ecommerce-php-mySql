@@ -1,0 +1,325 @@
+.checkCout-heading {
+  margin-top: 40px;
+  margin-bottom: 48px;
+  color: var(--Text2, #000);
+
+  /* Heading/36PX Medium */
+  font-family: Inter;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+  /* 83.333% */
+  letter-spacing: 1.44px;
+}
+.checkCout-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 170px;
+}
+.checkCout-left {
+}
+.checkCout-left-input {
+  margin-bottom: 32px;
+}
+.checkCout-left-input > span {
+  color: #000;
+  opacity: 0.8;
+  /* Title/16PX Regular */
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  /* 150% */
+}
+.checkCout-left-input > input {
+  margin-top: 8px;
+  outline: none;
+  border: none;
+  height: 50px;
+  padding: 0 10px;
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+  background: #f5f5f5;
+}
+.checkCout-right {
+}
+.checkCout-right-product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.checkCout-right-product--left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.checkCout-right-product--left > img {
+  width: 54px;
+  height: 54px;
+  object-fit: cover;
+}
+.checkCout-right-product--left > p {
+  color: #000;
+
+  /* Title/16PX Regular */
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  /* 150% */
+}
+.checkCout-right-product > p {
+  color: var(--Text2, #000);
+
+  /* Title/16PX Regular */
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  /* 150% */
+}
+
+.cart-total-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #202030;
+  color: #000;
+
+  /* Title/16PX Regular */
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  /* 150% */
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.checkbox input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox .checkmark {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.checkbox input[type="checkbox"]:checked + .checkmark {
+  background-color: #0078d4;
+  border-color: #0078d4;
+}
+
+.checkbox input[type="checkbox"]:checked + .checkmark:after {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: transform 0.2s ease;
+  transform: scale(1);
+}
+
+.checkbox .checkmark:after {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: transparent;
+  transform: scale(0);
+  transition: transform 0.2s ease;
+}
+.checkbox-title {
+  color: #000;
+
+  /* Title/16PX Regular */
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  /* 150% */
+  margin-left: 16px;
+}
+.coupon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+  gap: 16px;
+}
+.coupon > input {
+  display: flex;
+  height: 56px;
+  padding-left: 20px;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+  flex: 1;
+}
+.coupon > button {
+  display: flex;
+  height: 56px;
+  padding: 0 30px;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border-radius: 4px;
+  background:  #db4444;
+  color:  #fafafa;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+    border: none;
+  /* 150% */
+}
+.btn-payments  {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+}
+.button {
+    text-decoration: none;
+    line-height: 1;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, .05);
+    background-color: #fff;
+    color: #121212;
+    border: none;
+    cursor: pointer;
+}
+
+.button-decor {
+    position: absolute;
+    inset: 0;
+    background-color: var(--clr);
+    transform: translateX(-100%);
+    transition: transform .3s;
+    z-index: 0;
+}
+
+.button-content {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+}
+
+.button__icon {
+    width: 48px;
+    height: 56px;
+    background-color: var(--clr);
+    display: grid;
+    place-items: center;
+}
+
+.button__text {
+    display: inline-block;
+    transition: color .2s;
+    padding: 2px 1.5rem 2px;
+    padding-left: .75rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 150px;
+}
+
+.button:hover .button__text {
+    color: #fff;
+}
+
+.button:hover .button-decor {
+    transform: translate(0);
+}
+/* ========== tablet ==========  */
+@media only screen and (max-width: 800px) {
+    .checkCout-heading {
+        font-size: 30px;
+    }
+  .checkCout-wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 30px;
+  }
+  .checkCout-left-input {
+    margin-bottom: 20px;
+  }
+  .checkCout-left-input>input {
+    height: 46px;
+  }
+  .coupon>input {
+    height: 50px;
+  }
+  .coupon>button {
+    height: 50px;
+  }
+  .btn-payments {
+    display: flex;
+  }
+}
+
+/* =========== mobile ==============  */
+@media (max-width: 768px) {
+    .checkCout-heading {
+            font-size: 24px;
+            margin-top: 28px;
+            margin-bottom: 28px;
+        }
+    
+        .checkCout-wrapper {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto;
+            gap: 26px;
+        }
+    
+        .checkCout-left-input {
+            margin-bottom: 16px;
+        }
+    
+        .checkCout-left-input>input {
+            height: 40px;
+        }
+    
+        .coupon>input {
+            height: 40px;
+        }
+        .checkCout-left-input>span {
+            font-size: 14px;
+        }
+        .coupon>button {
+            height: 40px;
+        }
+        .button__icon {
+            height: 46px;
+        }
+        .btn-payments {
+            display: flex;
+        }
+}
