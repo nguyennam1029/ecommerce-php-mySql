@@ -169,7 +169,7 @@ session_start();
             </div>
             <p class="right-price"><?php echo number_format($row_sp['giaban'], 0, ',', '.') . '.đ' ?></p>
             <span class="overview"> Sô lượng còn : <?php echo $row_sp['soluong'] ?> </span>
-            <span class="overview">
+            <span class="overview2">
               Mô tả sản phẩm :
               <?php echo $row_sp['noidung'] ?>
             </span>

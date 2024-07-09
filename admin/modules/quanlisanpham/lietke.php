@@ -14,10 +14,10 @@
    </div>
 
    <div class="grid grid-cols-6 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
-     <div class="col-span-3 flex items-center">
+     <div class="col-span-4 flex items-center">
        <p class="font-medium">Tên sản phẩm</p>
      </div>
-     <div class="col-span-2 hidden items-center sm:flex">
+     <div class="col-span-1 hidden items-center sm:flex">
        <p class="font-medium">Danh mục</p>
      </div>
      <div class="col-span-1 flex items-center">
@@ -37,17 +37,17 @@
     ?>
 
      <div class="grid grid-cols-6 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
-       <div class="col-span-3 flex items-center">
+       <div class="col-span-4 flex items-center">
          <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
            <div class="h-12.5 w-15 rounded-md">
              <img src="modules/quanlisanpham/uploads/<?php echo $row['hinhanh'] ?>" alt="" width="200" height="150">
            </div>
-           <p class="text-sm font-medium text-black dark:text-white">
+           <p class="text-sm font-medium text-black dark:text-white pr-3">
              <?php echo $row['tensanpham'] ?>
            </p>
          </div>
        </div>
-       <div class="col-span-2 hidden items-center sm:flex">
+       <div class="col-span-1 hidden items-center sm:flex">
          <p class="text-sm font-medium text-black dark:text-white">
            <?php echo $row['tendanhmuc'] ?>
          </p>
