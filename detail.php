@@ -182,7 +182,7 @@ session_start();
                   <span>Điền số lượng bạn muốn !</span>
                 </p>
               </div>
-              <input type="submit" class="product-detail-btn-buynow" value="Thêm vào giỏ" name="themgiohang"></input>
+              <input type="submit" class="product-detail-btn-buynow" value="Mua Ngay" name="themgiohang"></input>
             </div>
         </form>
         <div class="delivery">
