@@ -2,6 +2,7 @@
 include('admin/config/connect.php');
 session_start();
 $id_khachhang = $_SESSION['id_khachhang'];
+// echo 'ID khách hàng: ' . $id_khachhang;
 
 // Check if the user is logged in
 if (!isset($id_khachhang)) {
@@ -153,11 +154,11 @@ $query_lietke_dh = mysqli_query($conn, $sql_lietke_dh);
                     </ul>
                 </div>
                 <div class="">
-                    <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+                    <div class="rounded-sm h-[400px] border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
 
 
-                        <div class="grid grid-cols-6 py-4 bg-gray-400 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
-                            <div class="col-span-2 flex items-center justify-center">
+                        <div class="grid grid-cols-8 py-4 bg-gray-400 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
+                            <div class="col-span-3 flex items-center justify-center">
                                 <p class="font-medium">Tên Khách hàng</p>
                             </div>
 
@@ -167,7 +168,7 @@ $query_lietke_dh = mysqli_query($conn, $sql_lietke_dh);
                             <div class="col-span-1 flex items-center justify-center">
                                 <p class="font-medium">Mã đơn hàng</p>
                             </div>
-                            <div class="col-span-3 hidden items-center sm:flex justify-center">
+                            <div class="col-span-2 hidden items-center sm:flex justify-center">
                                 <p class="font-medium">Địa chỉ</p>
                             </div>
                             <div class="col-span-1 flex items-center justify-center">
@@ -178,8 +179,8 @@ $query_lietke_dh = mysqli_query($conn, $sql_lietke_dh);
                         if (mysqli_num_rows($query_lietke_dh) > 0) {
                             while ($row = mysqli_fetch_assoc($query_lietke_dh)) {
                         ?>
-                                <div class="grid grid-cols-6 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
-                                    <div class="col-span-2 flex items-center justify-center">
+                                <div class="grid grid-cols-8 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
+                                    <div class="col-span-3 flex items-center justify-center">
                                         <div class="flex flex-col gap-4 sm:flex-row sm:items-center ">
                                             <div class="h-12.5 w-15 rounded-md">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -206,7 +207,7 @@ $query_lietke_dh = mysqli_query($conn, $sql_lietke_dh);
                                             <?php echo $row['code_cart']; ?>
                                         </p>
                                     </div>
-                                    <div class="col-span-3 hidden items-center justify-center sm:flex">
+                                    <div class="col-span-2 hidden items-center justify-center sm:flex">
                                         <p class="text-[14px] font-medium text-black dark:text-white">
                                             <?php echo $row['diachi']; ?>
                                         </p>

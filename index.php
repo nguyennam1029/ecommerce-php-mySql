@@ -623,41 +623,40 @@ session_start();
         <div class="gallery_item gallery_item_1">
           <img src="./image/gallery/gallery-1.png" alt="" class="gallery_item_img" />
           <div class="gallery_item_content">
-            <div class="gallery_item_title">Playstation 5</div>
+            <div class="gallery_item_title">Tay cầm chơi game PS5</div>
             <p class="gallery_item_p">
-              Lorem ipsum dolor sit amet consectetur adipisicing.
+              Người dùng hoàn toàn có thể chơi game và sạc pin một cách dễ dàng Hiệu ứng âm thanh chân thực
             </p>
-            <a href="#" class="gallery_item_link">SHOP NOW</a>
+            <a href="products.php" class="gallery_item_link">Xem ngay</a>
           </div>
         </div>
         <div class="gallery_item gallery_item_2">
           <img src="./image/gallery/gallery-2.png" alt="" class="gallery_item_img" />
           <div class="gallery_item_content">
-            <div class="gallery_item_title">Playstation 5</div>
+            <div class="gallery_item_title">Máy ảnh đa sắc</div>
             <p class="gallery_item_p">
-              Lorem ipsum dolor sit amet consectetur adipisicing.
+              Máy có thể kết nối với điện thoại thông minh qua Bluetooth để in ảnh từ điện thoại và sử dụng các tính năng in ảnh nâng cao.
             </p>
-            <a href="#" class="gallery_item_link">SHOP NOW</a>
+            <a href="#" class="gallery_item_link">Xem ngay</a>
           </div>
         </div>
         <div class="gallery_item gallery_item_3">
           <img src="./image/gallery/gallery-3.png" alt="" class="gallery_item_img" />
           <div class="gallery_item_content">
-            <div class="gallery_item_title">Playstation 5</div>
+            <div class="gallery_item_title">Pin sạc dự phòng Baseus</div>
             <p class="gallery_item_p">
-              Lorem ipsum dolor sit amet consectetur adipisicing.
+              Với pin sạc dự phòng Baseus Airpow Fast Charge 20000mAh 20W
             </p>
-            <a href="#" class="gallery_item_link">SHOP NOW</a>
+            <a href="#" class="gallery_item_link">Xem ngay</a>
           </div>
         </div>
         <div class="gallery_item gallery_item_4">
-          <img src="./image/gallery/gallery-4.png" alt="" class="gallery_item_img" />
+          <img src="./image/gallery/t.jpg" alt="" class="gallery_item_img" />
           <div class="gallery_item_content">
-            <div class="gallery_item_title">Playstation 5</div>
+            <div class="gallery_item_title">BỘ SẠC KHÔNG DÂY</div>
             <p class="gallery_item_p">
-              Lorem ipsum dolor sit amet consectetur adipisicing.
-            </p>
-            <a href="#" class="gallery_item_link">SHOP NOW</a>
+              Chất liệu silicon mềm, có thể gập lại để dễ dàng lưu trữ</p>
+            <a href="#" class="gallery_item_link">Xem ngay</a>
           </div>
         </div>
       </div>
@@ -689,35 +688,34 @@ session_start();
       <div class="footer_item">
         <a href="#" class="footer_logo">Exclusive</a>
         <div class="footer_p">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          Exercitationem fuga harum voluptate?
+          Chào mừng các bạn đến với ngôi nhà trao đến mọi sự tiện lợi về công nghệ. Thứ bạn cần chúng tôi có
         </div>
       </div>
       <div class="footer_item">
-        <h3 class="footer_item_titl">Support</h3>
+        <h3 class="footer_item_titl">Liên hệ</h3>
         <ul class="footer_list">
           <li class="li footer_list_item">Stockholm, Sweden</li>
           <li class="li footer_list_item">email@gmail.com</li>
-          <li class="li footer_list_item">+46 123 456 78</li>
-          <li class="li footer_list_item">+46 72 345 67</li>
+          <li class="li footer_list_item">+84 123 456 78</li>
+          <li class="li footer_list_item">+84 72 345 67</li>
         </ul>
       </div>
       <div class="footer_item">
-        <h3 class="footer_item_titl">Support</h3>
+        <h3 class="footer_item_titl">Chức năng</h3>
         <ul class="footer_list">
-          <li class="li footer_list_item">Account</li>
-          <li class="li footer_list_item">Login / Register</li>
-          <li class="li footer_list_item">Cart</li>
-          <li class="li footer_list_item">Shop</li>
+          <li class="li footer_list_item">Quản lý</li>
+          <li class="li footer_list_item">Đăng ký, đăng nhập</li>
+          <li class="li footer_list_item">Giỏ hàng</li>
+          <li class="li footer_list_item">Sản phẩm</li>
         </ul>
       </div>
       <div class="footer_item">
-        <h3 class="footer_item_titl">Support</h3>
+        <h3 class="footer_item_titl">Câu hỏi</h3>
         <ul class="footer_list">
-          <li class="li footer_list_item">Privacy policy</li>
-          <li class="li footer_list_item">Terms of use</li>
-          <li class="li footer_list_item">FAQ's</li>
-          <li class="li footer_list_item">Contact</li>
+          <li class="li footer_list_item">Trang web hoạt động bao lâu?</li>
+          <li class="li footer_list_item">Đội ngũ gồm những ai?</li>
+          <li class="li footer_list_item">Có bao nhiêu người dùng?</li>
+          <li class="li footer_list_item">Lợi nhuận hàng năm?</li>
         </ul>
       </div>
     </div>

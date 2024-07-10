@@ -180,43 +180,35 @@ if (isset($_POST['dangnhap'])) {
       <div class="footer_item">
         <a href="#" class="footer_logo">Exclusive</a>
         <div class="footer_p">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          Exercitationem fuga harum voluptate?
+          Chào mừng các bạn đến với ngôi nhà trao đến mọi sự tiện lợi về công nghệ. Thứ bạn cần chúng tôi có
         </div>
       </div>
       <div class="footer_item">
-        <h3 class="footer_item_titl">Support</h3>
+        <h3 class="footer_item_titl">Liên hệ</h3>
         <ul class="footer_list">
           <li class="li footer_list_item">Stockholm, Sweden</li>
           <li class="li footer_list_item">email@gmail.com</li>
-          <li class="li footer_list_item">+46 123 456 78</li>
-          <li class="li footer_list_item">+46 72 345 67</li>
+          <li class="li footer_list_item">+84 123 456 78</li>
+          <li class="li footer_list_item">+84 72 345 67</li>
         </ul>
       </div>
       <div class="footer_item">
-        <h3 class="footer_item_titl">Support</h3>
+        <h3 class="footer_item_titl">Chức năng</h3>
         <ul class="footer_list">
-          <li class="li footer_list_item">Account</li>
-          <li class="li footer_list_item">Login / Register</li>
-          <li class="li footer_list_item">Cart</li>
-          <li class="li footer_list_item">Shop</li>
+          <li class="li footer_list_item">Quản lý</li>
+          <li class="li footer_list_item">Đăng ký, đăng nhập</li>
+          <li class="li footer_list_item">Giỏ hàng</li>
+          <li class="li footer_list_item">Sản phẩm</li>
         </ul>
       </div>
       <div class="footer_item">
-        <h3 class="footer_item_titl">Support</h3>
+        <h3 class="footer_item_titl">Câu hỏi</h3>
         <ul class="footer_list">
-          <li class="li footer_list_item">Privacy policy</li>
-          <li class="li footer_list_item">Terms of use</li>
-          <li class="li footer_list_item">FAQ's</li>
-          <li class="li footer_list_item">Contact</li>
+          <li class="li footer_list_item">Trang web hoạt động bao lâu?</li>
+          <li class="li footer_list_item">Đội ngũ gồm những ai?</li>
+          <li class="li footer_list_item">Có bao nhiêu người dùng?</li>
+          <li class="li footer_list_item">Lợi nhuận hàng năm?</li>
         </ul>
-      </div>
-    </div>
-    <div class="footer_bottom">
-      <div class="container footer_bottom_container">
-        <p class="footer_copy">
-          Copyright Exclusive 2023. All right reserved
-        </p>
       </div>
     </div>
   </footer>

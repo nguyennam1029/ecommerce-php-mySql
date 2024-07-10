@@ -1,6 +1,7 @@
 <?php
 include('admin/config/connect.php');
 session_start();
+
 if (isset($_POST['dangky'])) {
 
   $tenkhachhang = $_POST['hovaten'];
@@ -8,15 +9,29 @@ if (isset($_POST['dangky'])) {
   $dienthoai = $_POST['dienthoai'];
   $diachi = $_POST['diachi'];
   $matkhau = md5($_POST['matkhau']);
-  $sql_dangky = mysqli_query($conn, "insert into tbl_dangky(tenkhachhang,email,diachi,matkhau,dienthoai) value('" . $tenkhachhang . "','" . $email . "',
-    '" . $diachi . "','" . $matkhau . "','" . $dienthoai . "')");
-  if ($sql_dangky) {
-    echo "<p> Bạn đã đăng ký thành công</p>";
-    $_SESSION['dangky'] = $tenkhachhang;
 
-    header('Location:login.php');
+  // Check for valid customer name
+  if (strlen($tenkhachhang) > 6 && ctype_upper($tenkhachhang[0])) {
+    // Check for duplicate email
+    $sql_check_email = "SELECT * FROM tbl_dangky WHERE email='$email'";
+    $query_check_email = mysqli_query($conn, $sql_check_email);
+
+    if (mysqli_num_rows($query_check_email) > 0) {
+      echo "<script>alert('Email đã tồn tại');</script>";
+    } else {
+      $sql_dangky = mysqli_query($conn, "INSERT INTO tbl_dangky(tenkhachhang, email, diachi, matkhau, dienthoai) VALUES('$tenkhachhang', '$email', '$diachi', '$matkhau', '$dienthoai')");
+      if ($sql_dangky) {
+        $_SESSION['dangky'] = $tenkhachhang;
+        echo "<script>alert('Đăng kí thành công');</script>";
+        // echo "<script>window.location.href='../../index.php?action=quanlikhachhang&query=lietke';</script>";
+
+        header('Location:login.php');
+      } else {
+        echo "<script>alert('Đăng ký không thành công');</script>";
+      }
+    }
   } else {
-    echo "<script>alert('Đăng ký không thành công')</script>";
+    echo "<script>alert('Tên khách hàng phải có độ dài lớn hơn 6 và có chữ cái đầu tiên viết hoa.');</script>";
   }
 }
 ?>
@@ -155,7 +170,7 @@ if (isset($_POST['dangky'])) {
           <h2 class="form_title">Tạo tài khoản của bạn</h2>
           <p class="auth_p">Nhập thông tin chi tiết của bạn dưới đây</p>
           <div class="form_group">
-            <input type="text" placeholder="Name" name="hovaten" class="form_input" />
+            <input type="text" placeholder="Họ và Tên6 kí tự trở lên và chữ cái đầu phải in hoa VD: Hải dev, FullStack..." name="hovaten" class="form_input" />
           </div>
           <div class="form_group">
             <input type="text" placeholder="Email" name="email" class="form_input" />
@@ -187,43 +202,35 @@ if (isset($_POST['dangky'])) {
       <div class="footer_item">
         <a href="#" class="footer_logo">Exclusive</a>
         <div class="footer_p">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          Exercitationem fuga harum voluptate?
+          Chào mừng các bạn đến với ngôi nhà trao đến mọi sự tiện lợi về công nghệ. Thứ bạn cần chúng tôi có
         </div>
       </div>
       <div class="footer_item">
-        <h3 class="footer_item_titl">Support</h3>
+        <h3 class="footer_item_titl">Liên hệ</h3>
         <ul class="footer_list">
           <li class="li footer_list_item">Stockholm, Sweden</li>
           <li class="li footer_list_item">email@gmail.com</li>
-          <li class="li footer_list_item">+46 123 456 78</li>
-          <li class="li footer_list_item">+46 72 345 67</li>
+          <li class="li footer_list_item">+84 123 456 78</li>
+          <li class="li footer_list_item">+84 72 345 67</li>
         </ul>
       </div>
       <div class="footer_item">
-        <h3 class="footer_item_titl">Support</h3>
+        <h3 class="footer_item_titl">Chức năng</h3>
         <ul class="footer_list">
-          <li class="li footer_list_item">Account</li>
-          <li class="li footer_list_item">Login / Register</li>
-          <li class="li footer_list_item">Cart</li>
-          <li class="li footer_list_item">Shop</li>
+          <li class="li footer_list_item">Quản lý</li>
+          <li class="li footer_list_item">Đăng ký, đăng nhập</li>
+          <li class="li footer_list_item">Giỏ hàng</li>
+          <li class="li footer_list_item">Sản phẩm</li>
         </ul>
       </div>
       <div class="footer_item">
-        <h3 class="footer_item_titl">Support</h3>
+        <h3 class="footer_item_titl">Câu hỏi</h3>
         <ul class="footer_list">
-          <li class="li footer_list_item">Privacy policy</li>
-          <li class="li footer_list_item">Terms of use</li>
-          <li class="li footer_list_item">FAQ's</li>
-          <li class="li footer_list_item">Contact</li>
+          <li class="li footer_list_item">Trang web hoạt động bao lâu?</li>
+          <li class="li footer_list_item">Đội ngũ gồm những ai?</li>
+          <li class="li footer_list_item">Có bao nhiêu người dùng?</li>
+          <li class="li footer_list_item">Lợi nhuận hàng năm?</li>
         </ul>
-      </div>
-    </div>
-    <div class="footer_bottom">
-      <div class="container footer_bottom_container">
-        <p class="footer_copy">
-          Copyright Exclusive 2023. All right reserved
-        </p>
       </div>
     </div>
   </footer>

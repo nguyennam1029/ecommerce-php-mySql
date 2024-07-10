@@ -221,7 +221,7 @@ if (!isset($_SESSION['dangky'])) {
       </table>
     </div>
 
-    <div class="cart-total">
+    <div class="cart-total" <?php if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) echo 'style="display: none;"'; ?>>
       <h2 class="cart-total-heading">Cart Total</h2>
       <div class="cart-total-label">
         <p>Subtotal:</p>
