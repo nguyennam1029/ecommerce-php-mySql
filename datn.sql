@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 09, 2024 at 08:44 AM
+-- Generation Time: Jul 10, 2024 at 10:08 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -58,26 +58,10 @@ CREATE TABLE `tbl_cart` (
 --
 
 INSERT INTO `tbl_cart` (`id_cart`, `id_khachhang`, `code_cart`, `cart_status`) VALUES
-(9, 8, '6868', 0),
-(10, 8, '655', 0),
-(11, 8, '4002', 0),
-(12, 8, '3381', 1),
-(13, 8, '1684', 1),
-(14, 8, '3159', 1),
-(15, 8, '748', 1),
-(16, 8, '6610', 0),
-(17, 8, '3292', 1),
-(18, 8, '488', 1),
-(19, 8, '6955', 1),
-(20, 8, '7076', 1),
-(21, 8, '4770', 1),
-(22, 8, '4868', 1),
-(23, 8, '4984', 1),
-(24, 8, '1860', 1),
-(25, 8, '7810', 1),
-(26, 9, '9001', 1),
-(27, 9, '892', 1),
-(28, 10, '3046', 1);
+(28, 10, '3046', 0),
+(34, 11, '3765', 0),
+(35, 11, '9522', 1),
+(36, 12, '2769', 0);
 
 -- --------------------------------------------------------
 
@@ -97,19 +81,15 @@ CREATE TABLE `tbl_cart_detail` (
 --
 
 INSERT INTO `tbl_cart_detail` (`id_cart_detail`, `code_cart`, `id_sanpham`, `soluongmua`) VALUES
-(5, '6868', 25, 1),
-(6, '655', 27, 1),
-(7, '4002', 25, 1),
-(8, '4770', 25, 2),
-(9, '4984', 25, 3),
-(10, '1860', 25, 1),
-(11, '7810', 26, 1),
-(12, '9001', 38, 3),
-(13, '892', 46, 3),
 (14, '892', 62, 2),
 (15, '892', 47, 1),
 (16, '3046', 36, 3),
-(17, '3046', 34, 2);
+(17, '3046', 34, 2),
+(18, '3765', 33, 1),
+(19, '3765', 35, 1),
+(20, '9522', 35, 2),
+(21, '2769', 36, 1),
+(22, '2769', 35, 3);
 
 -- --------------------------------------------------------
 
@@ -133,7 +113,9 @@ CREATE TABLE `tbl_dangky` (
 INSERT INTO `tbl_dangky` (`id_dangky`, `tenkhachhang`, `email`, `diachi`, `matkhau`, `dienthoai`) VALUES
 (8, 'Hà Ánh', 'vanh12345@gmail.com', 'Hà Nội', '25f9e794323b453885f5181f1b624d0b', '09876583'),
 (9, 't', 'thuyduong@gmail.com', 'hfdhh', 'c4ca4238a0b923820dcc509a6f75849b', '97787878'),
-(10, 'vsvs', 'vvsvv@gmail.com', 'hfdhh', 'c4ca4238a0b923820dcc509a6f75849b', '97787878');
+(10, 'vsvs', 'vvsvv@gmail.com', 'hfdhh', 'c4ca4238a0b923820dcc509a6f75849b', '97787878'),
+(11, 'egr', 'namcoi1029scs@gmail.com', 'hfdhh', 'c4ca4238a0b923820dcc509a6f75849b', '123456789'),
+(12, 'ggge', 'ggrhrh@gmail.com', 'ha noi', 'c4ca4238a0b923820dcc509a6f75849b', '97787878');
 
 -- --------------------------------------------------------
 
@@ -185,10 +167,10 @@ CREATE TABLE `tbl_sanpham` (
 --
 
 INSERT INTO `tbl_sanpham` (`id_sanpham`, `tensanpham`, `masp`, `giasp`, `giaban`, `soluong`, `hinhanh`, `tomtat`, `noidung`, `thuctrang`, `id_danhmuc`) VALUES
-(33, 'Apple Macbook Air M2 2022 ', 'MT01', 30000000, 23900000, 10, '1719769923_macbook_air_m2_1_1.webp', 'Thiết kế sang trọng, lịch lãm - siêu mỏng 11.3mm, chỉ 1.24kg\r\nHiệu năng hàng đầu - Chip Apple M2, 8 nhân GPU, hỗ trợ tốt các phần mềm như Word, Axel, Adoble Premier\r\nĐa nhiệm mượt mà - Ram 8GB, SSD 256GB cho phép ', 'Thiết kế sang trọng, lịch lãm - siêu mỏng 11.3mm, chỉ 1.24kg\r\nHiệu năng hàng đầu - Chip Apple M2, 8 nhân GPU, hỗ trợ tốt các phần mềm như Word, Axel, Adoble Premier\r\nĐa nhiệm mượt mà - Ram 8GB, SSD 256GB cho phép vừa làm việc, vừa nghe nhạc\r\nMàn hình sắc nét - Độ phân giải 2560 x 1664 cùng độ sáng 500 nits\r\nÂm thanh sống động - 4 loa tramg bị công nghệ Dolby Atmos và âm thanh đa chiều', 1, 2),
+(33, 'Apple Macbook Air M2 2022 ', 'MT01', 30000000, 23900000, 9, '1719769923_macbook_air_m2_1_1.webp', 'Thiết kế sang trọng, lịch lãm - siêu mỏng 11.3mm, chỉ 1.24kg\r\nHiệu năng hàng đầu - Chip Apple M2, 8 nhân GPU, hỗ trợ tốt các phần mềm như Word, Axel, Adoble Premier\r\nĐa nhiệm mượt mà - Ram 8GB, SSD 256GB cho phép ', 'Thiết kế sang trọng, lịch lãm - siêu mỏng 11.3mm, chỉ 1.24kg\r\nHiệu năng hàng đầu - Chip Apple M2, 8 nhân GPU, hỗ trợ tốt các phần mềm như Word, Axel, Adoble Premier\r\nĐa nhiệm mượt mà - Ram 8GB, SSD 256GB cho phép vừa làm việc, vừa nghe nhạc\r\nMàn hình sắc nét - Độ phân giải 2560 x 1664 cùng độ sáng 500 nits\r\nÂm thanh sống động - 4 loa tramg bị công nghệ Dolby Atmos và âm thanh đa chiều', 1, 2),
 (34, 'Laptop MSI Gaming Bravo 15', 'MT02', 16490000, 15890000, 8, '1719770496_msi_1.webp', 'Chip AMD Ryzen 5 - 7535HS xử lý nhanh chóng các tác vụ như văn phòng, đồ hoạ, coding hay chiến game\r\nGPU AMD Radeon RX 6550M 4 GB cho đồ hoạ cao, mượt mà và ổn định ở các pha giao tranh\r\nRAM 16 GB cho phép máy vận h', 'Chip AMD Ryzen 5 - 7535HS xử lý nhanh chóng các tác vụ như văn phòng, đồ hoạ, coding hay chiến game\r\nGPU AMD Radeon RX 6550M 4 GB cho đồ hoạ cao, mượt mà và ổn định ở các pha giao tranh\r\nRAM 16 GB cho phép máy vận hành mượt mà, mở cùng lúc nhiều tác vụ\r\nỔ cứng 512 GB hỗ trợ khởi động laptop, truy xuất dữ liệu nhanh hơn\r\nTần số quét 144 Hz giúp hình ảnh không bị rách hay nhoè mờ khi chơi game', 1, 2),
-(35, 'Apple MacBook Air M1 ', 'MT03', 18990000, 17000000, 14, '1719770659_air_m2.webp', 'Phù hợp cho lập trình viên, thiết kế đồ họa 2D, dân văn phòng\r\nHiệu năng vượt trội - Cân mọi tác vụ từ word, exel đến chỉnh sửa ảnh trên các phần mềm như AI, PTS\r\nĐa nhiệm mượt mà - Ram 8GB cho ph', 'Phù hợp cho lập trình viên, thiết kế đồ họa 2D, dân văn phòng\r\nHiệu năng vượt trội - Cân mọi tác vụ từ word, exel đến chỉnh sửa ảnh trên các phần mềm như AI, PTS\r\nĐa nhiệm mượt mà - Ram 8GB cho phép vừa mở trình duyệt để tra cứu thông tin, vừa làm việc trên phần mềm\r\nTrang bị SSD 256GB - Cho thời gian khởi động nhanh chóng, tối ưu hoá thời gian load ứng dụng\r\nChất lượng hình ảnh sắc nét - Màn hình Retina cao cấp cùng công nghệ TrueTone cân bằng màu sắc\r\nThiết kế sang trọng - Nặng chỉ 1.29KG, độ dày 16.1mm. Tiện lợi mang theo mọi nơi', 1, 2),
-(36, 'Laptop ASUS VivoBook 15 ', 'MT04', 25000000, 24750000, 4, '1719770883_text_ng_n_1__1_120.webp', 'Màn hình 15.6 inch tấm nền OLED cho khả năng tái tạo hoàn hảo\r\nCPU Intel Core i5-13500H mạnh mẽ có thể xử lý mượt mà mọi tác vụ\r\nCard Intel Iris XE cho trải nghiệm giải trí cao\r\nRAM 16 GB chạy đa ứng dụng m', 'Màn hình 15.6 inch tấm nền OLED cho khả năng tái tạo hoàn hảo\r\nCPU Intel Core i5-13500H mạnh mẽ có thể xử lý mượt mà mọi tác vụ\r\nCard Intel Iris XE cho trải nghiệm giải trí cao\r\nRAM 16 GB chạy đa ứng dụng mượt mà không lo giật, lag\r\nỔ cứng SSD 512 GB cho tốc độ truy xuất dữ liệu nhanh, không gian lưu trữ đủ lớn', 1, 2),
+(35, 'Apple MacBook Air M1 ', 'MT03', 18990000, 17000000, 8, '1719770659_air_m2.webp', 'Phù hợp cho lập trình viên, thiết kế đồ họa 2D, dân văn phòng\r\nHiệu năng vượt trội - Cân mọi tác vụ từ word, exel đến chỉnh sửa ảnh trên các phần mềm như AI, PTS\r\nĐa nhiệm mượt mà - Ram 8GB cho ph', 'Phù hợp cho lập trình viên, thiết kế đồ họa 2D, dân văn phòng\r\nHiệu năng vượt trội - Cân mọi tác vụ từ word, exel đến chỉnh sửa ảnh trên các phần mềm như AI, PTS\r\nĐa nhiệm mượt mà - Ram 8GB cho phép vừa mở trình duyệt để tra cứu thông tin, vừa làm việc trên phần mềm\r\nTrang bị SSD 256GB - Cho thời gian khởi động nhanh chóng, tối ưu hoá thời gian load ứng dụng\r\nChất lượng hình ảnh sắc nét - Màn hình Retina cao cấp cùng công nghệ TrueTone cân bằng màu sắc\r\nThiết kế sang trọng - Nặng chỉ 1.29KG, độ dày 16.1mm. Tiện lợi mang theo mọi nơi', 1, 2),
+(36, 'Laptop ASUS VivoBook 15 ', 'MT04', 25000000, 24750000, 3, '1719770883_text_ng_n_1__1_120.webp', 'Màn hình 15.6 inch tấm nền OLED cho khả năng tái tạo hoàn hảo\r\nCPU Intel Core i5-13500H mạnh mẽ có thể xử lý mượt mà mọi tác vụ\r\nCard Intel Iris XE cho trải nghiệm giải trí cao\r\nRAM 16 GB chạy đa ứng dụng m', 'Màn hình 15.6 inch tấm nền OLED cho khả năng tái tạo hoàn hảo\r\nCPU Intel Core i5-13500H mạnh mẽ có thể xử lý mượt mà mọi tác vụ\r\nCard Intel Iris XE cho trải nghiệm giải trí cao\r\nRAM 16 GB chạy đa ứng dụng mượt mà không lo giật, lag\r\nỔ cứng SSD 512 GB cho tốc độ truy xuất dữ liệu nhanh, không gian lưu trữ đủ lớn', 1, 2),
 (37, 'Laptop ASUS TUF Gaming F15', 'MT05', 20000000, 19570000, 6, '1719802410_text_ng_n_10__2_80.webp', 'CPU Intel Core i5 12500H dễ dàng xử lý các tác vụ nặng và chơi game AAA cấu hình cao\r\nCard NVIDIA GeForce RTX 3050 cải thiện hiệu suất xử lý đồ họa và đảm bảo trải nghiệm chơi game tuyệt vời\r\nMàn hình 15.6', 'CPU Intel Core i5 12500H dễ dàng xử lý các tác vụ nặng và chơi game AAA cấu hình cao\r\nCard NVIDIA GeForce RTX 3050 cải thiện hiệu suất xử lý đồ họa và đảm bảo trải nghiệm chơi game tuyệt vời\r\nMàn hình 15.6 inch Full HD cùng tần số quét 144 Hz hỗ trợ chơi game sống động với tốc độ cực nhanh\r\nRAM 8GB cùng ổ cứng 512 GB SSD rút ngắn thời gian mở máy, khởi động ứng dụng', 1, 2),
 (38, 'Laptop Asus ROG Zephyrus M16', 'MT06', 64000000, 63750000, 2, '1719802427_text_ng_n_10__2_62.webp', 'Sở hữu thiết kế mạnh mẽ với lớp vỏ màu đen cá tính\r\nCPU Intel Core i9-13900H cân mọi tác vụ học tập, văn phòng\r\nRAM DDR5 4800Mhz tăng tốc độ xử lý mọi tác vụ từ gaming, duyệt web và giải trí\r\nỔ c', 'Sở hữu thiết kế mạnh mẽ với lớp vỏ màu đen cá tính\r\nCPU Intel Core i9-13900H cân mọi tác vụ học tập, văn phòng\r\nRAM DDR5 4800Mhz tăng tốc độ xử lý mọi tác vụ từ gaming, duyệt web và giải trí\r\nỔ cứng SSD PCIe 4.0 1TB cho phép bạn lưu trữ hàng trăm tựa game cùng nhiều phần mềm chuyên dụng', 1, 2),
 (39, 'Laptop Dell Inspiron 15', 'MT07', 9800000, 9750000, 5, '1719802715_text_ng_n_2__4_28.webp', 'Thiết kế đơn giản, trẻ trung với tone màu đen bao phủ.\r\nMàn hình cảm ứng 15.6 inch Full HD cho trải nghiệm hình ảnh vô cùng sắc nét.\r\nCPU Intel core i5-1155G7 cùng 8 GB RAM DDR4 xử lý mượt các tác vụ văn phòn', 'Thiết kế đơn giản, trẻ trung với tone màu đen bao phủ.\r\nMàn hình cảm ứng 15.6 inch Full HD cho trải nghiệm hình ảnh vô cùng sắc nét.\r\nCPU Intel core i5-1155G7 cùng 8 GB RAM DDR4 xử lý mượt các tác vụ văn phòng: Word, Excel,...\r\nCard đồ họa Intel Iris Xe Graphics hỗ trợ chỉnh ảnh đơn giản.\r\nKhông gian lưu trữ vừa phải với ổ cứng 256 GB SSD.', 1, 2),
@@ -267,19 +249,19 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `id_cart` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_cart` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `tbl_cart_detail`
 --
 ALTER TABLE `tbl_cart_detail`
-  MODIFY `id_cart_detail` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_cart_detail` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `tbl_dangky`
 --
 ALTER TABLE `tbl_dangky`
-  MODIFY `id_dangky` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_dangky` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tbl_danhmuc`

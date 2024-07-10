@@ -138,7 +138,8 @@ if (isset($_POST['dangxuat'])) {
       <div class="profile">
         <div class="sidebar">
           <ul class="menu">
-            <li class="menu-item active"><a href="#">Thông tin của tôi</a></li>
+            <li class="menu-item active"><a href="#">Thông tin</a></li>
+            <li class="menu-item active"><a href="./order.php">Đơn hàng</a></li>
 
           </ul>
         </div>
