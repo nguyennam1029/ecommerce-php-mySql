@@ -148,8 +148,8 @@ $query_lietke_dh = mysqli_query($conn, $sql_lietke_dh);
             <div class="profile">
                 <div class="sidebar">
                     <ul class="menu">
-                        <li class="menu-item active"><a href="./profile.php">Thông tin của tôi</a></li>
-                        <li class="menu-item active"><a href="./order.php">Thông tin đơn hàng</a></li>
+                        <li class="menu-item active"><a href="./profile.php">Thông tin</a></li>
+                        <li class="menu-item active"><a href="./order.php">Đơn hàng</a></li>
 
                     </ul>
                 </div>

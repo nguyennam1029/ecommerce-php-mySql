@@ -209,8 +209,9 @@ if (!isset($_SESSION['dangky'])) {
 
             ?>
             <tr>
-              <td colspan="4">
-                <p>Hiện tại giỏ hàng trống</p>
+              <td colspan="5">
+                <img src="https://cdn.dribbble.com/users/2046015/screenshots/5973727/06-loader_telega.gif" alt="" class="shopping-gif" />
+                <p class="shopping-gif-text">Hiện tại giỏ hàng trống</p>
               </td>
             </tr>
           <?php

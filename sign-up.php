@@ -34,6 +34,11 @@ if (isset($_POST['dangky'])) {
     exit;
   }
 
+  // Check for valid customer address
+  if (strlen($diachi) <= 6) {
+    echo "<script>alert('Địa chỉ phải đầy đủ.'); window.history.back();</script>";
+    exit;
+  }
   // Check for duplicate email
   $sql_check_email = "SELECT * FROM tbl_dangky WHERE email='$email'";
   $query_check_email = mysqli_query($conn, $sql_check_email);

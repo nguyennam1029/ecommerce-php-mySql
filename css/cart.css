@@ -309,3 +309,12 @@ padding: 0 10px;
                                     padding: 18px;
                                 }
 }
+
+.shopping-gif {
+    width: 300px;
+    margin: 20px auto;
+}
+.shopping-gif-text {
+    text-align: center;
+    padding-left: 30px;
+}
