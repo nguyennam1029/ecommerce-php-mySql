@@ -2,14 +2,80 @@
 include('admin/config/connect.php');
 session_start();
 $id_khachhang = $_SESSION['id_khachhang'];
-$sql_select = "select *from tbl_dangky where id_dangky='" . $id_khachhang . "' ";
+$sql_select = "SELECT * FROM tbl_dangky WHERE id_dangky='$id_khachhang'";
 $query_select = mysqli_query($conn, $sql_select);
 $row = mysqli_fetch_array($query_select);
-if (isset($_POST['dangxuat'])) {
-  unset($_SESSION['dangky']);
-  header('Location:index.php');
+
+// Xử lý khi người dùng cập nhật thông tin
+if (isset($_POST['capnhat'])) {
+  $tenkhachhang = $_POST['tenkhachhang'];
+  $dienthoai = $_POST['dienthoai'];
+  $diachi = $_POST['diachi'];
+  $matkhau_moi = $_POST['matkhau_moi']; // Mật khẩu mới
+
+  // Check for valid customer name
+  if (strlen($tenkhachhang) <= 6 || !ctype_upper($tenkhachhang[0])) {
+    echo "<script>alert('Tên khách hàng phải có độ dài lớn hơn 6 và có chữ cái đầu tiên viết hoa.'); window.history.back();</script>";
+    exit;
+  }
+
+  // Check for valid customer address
+  if (strlen($diachi) <= 6) {
+    echo "<script>alert('Địa chỉ phải có độ dài lớn hơn 6 ký tự.'); window.history.back();</script>";
+    exit;
+  }
+
+  // Check for valid phone number
+  if (strlen($dienthoai) < 10) {
+    echo "<script>alert('Số điện thoại phải có độ dài ít nhất 10 kí tự.'); window.history.back();</script>";
+    exit;
+  }
+
+  // Nếu người dùng nhập mật khẩu mới, thực hiện cập nhật
+  if (!empty($matkhau_moi)) {
+    // Check for valid password
+    if (strlen($matkhau_moi) < 6 || !preg_match('/[A-Z]/', $matkhau_moi)) {
+      echo "<script>alert('Mật khẩu phải có độ dài ít nhất 6 ký tự và có ít nhất một chữ cái in hoa.'); window.location.href='profile.php';</script>";
+      exit;
+    }
+    // Mã hóa mật khẩu mới bằng MD5
+    $matkhau_moi_hashed = md5($matkhau_moi);
+
+    // Câu lệnh SQL để cập nhật thông tin và mật khẩu mới
+    $sql_update = "UPDATE tbl_dangky SET tenkhachhang='$tenkhachhang', diachi='$diachi', dienthoai='$dienthoai', matkhau='$matkhau_moi_hashed' WHERE id_dangky='$id_khachhang'";
+    $query_update = mysqli_query($conn, $sql_update);
+
+    if ($query_update) {
+      echo "<script>alert('Cập nhật thông tin và mật khẩu thành công');</script>";
+      // Cập nhật lại thông tin trong session nếu cần thiết
+      $_SESSION['dangky'] = $tenkhachhang;
+      // Làm mới dữ liệu của $row để hiển thị thông tin mới sau khi cập nhật
+      $row['tenkhachhang'] = $tenkhachhang;
+      $row['dienthoai'] = $dienthoai;
+      $row['diachi'] = $diachi;
+    } else {
+      echo "<script>alert('Cập nhật thông tin và mật khẩu không thành công');</script>";
+    }
+  } else {
+    // Nếu người dùng không nhập mật khẩu mới, chỉ cập nhật thông tin khác
+    $sql_update = "UPDATE tbl_dangky SET tenkhachhang='$tenkhachhang', diachi='$diachi', dienthoai='$dienthoai' WHERE id_dangky='$id_khachhang'";
+    $query_update = mysqli_query($conn, $sql_update);
+
+    if ($query_update) {
+      echo "<script>alert('Cập nhật thông tin thành công');</script>";
+      // Cập nhật lại thông tin trong session nếu cần thiết
+      $_SESSION['dangky'] = $tenkhachhang;
+      // Làm mới dữ liệu của $row để hiển thị thông tin mới sau khi cập nhật
+      $row['tenkhachhang'] = $tenkhachhang;
+      $row['dienthoai'] = $dienthoai;
+      $row['diachi'] = $diachi;
+    } else {
+      echo "<script>alert('Cập nhật thông tin không thành công');</script>";
+    }
+  }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -145,31 +211,51 @@ if (isset($_POST['dangxuat'])) {
         </div>
         <div class="content">
           <h2>Cập nhật thông tin</h2>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="first-name">Tên</label>
-              <input type="text" id="first-name" value="<?php echo $row['tenkhachhang'] ?>" disabled />
-            </div>
-            <div class="form-group">
-              <label for="last-name">Số điện thoại</label>
-              <input type="text" id="last-name" value="<?php echo $row['dienthoai'] ?>" disabled />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" value="<?php echo $row['email'] ?>" disabled />
-            </div>
-            <div class="form-group">
-              <label for="address">Địa chỉ</label>
-              <input type="text" id="address" value="<?php echo $row['diachi'] ?>" disabled />
-            </div>
-          </div>
           <form action="" method="POST">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first-name">Tên</label>
+                <input type="text" id="first-name" name="tenkhachhang" value="<?php echo $row['tenkhachhang'] ?>" />
+              </div>
+              <div class="form-group">
+                <label for="last-name">Số điện thoại</label>
+                <input type="text" id="last-name" name="dienthoai" value="<?php echo $row['dienthoai'] ?>" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" value="<?php echo $row['email'] ?>" disabled />
+              </div>
+              <div class="form-group">
+                <label for="address">Địa chỉ</label>
+                <input type="text" id="address" name="diachi" value="<?php echo $row['diachi'] ?>" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="new-password">Mật khẩu mới</label>
+                <div class="password-toggle">
+                  <input type="password" id="new-password" name="matkhau_moi" placeholder="Nhập mật khẩu mới" />
+                  <span toggle="#new-password" class="eye-toggle" onclick="togglePasswordVisibility(this)">
+                    <!-- Icon hiển thị mật khẩu -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 eye-icon" id="eye-icon-open">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <!-- Icon ẩn mật khẩu -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 eye-icon" id="eye-icon-closed" style="display: none;">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
             <div class="form-actions">
-              <button type="button" class="cancel-btn">Cancel</button>
-              <button type="submit" name="dangxuat" class="save-btn ">Đăng Xuất</button>
+
+              <button type="submit" name="capnhat" class="cancel-btn">Cập nhật</button>
+              <button type="submit" name="dangxuat" class="save-btn">Đăng Xuất</button>
             </div>
           </form>
         </div>
@@ -214,6 +300,24 @@ if (isset($_POST['dangxuat'])) {
       </div>
     </div>
   </footer>
+
+  <script>
+    function togglePasswordVisibility(element) {
+      const input = document.querySelector(element.getAttribute('toggle'));
+      const eyeIconOpen = document.getElementById('eye-icon-open');
+      const eyeIconClosed = document.getElementById('eye-icon-closed');
+
+      if (input.getAttribute('type') === 'password') {
+        input.setAttribute('type', 'text');
+        eyeIconOpen.style.display = 'none';
+        eyeIconClosed.style.display = 'block';
+      } else {
+        input.setAttribute('type', 'password');
+        eyeIconOpen.style.display = 'block';
+        eyeIconClosed.style.display = 'none';
+      }
+    }
+  </script>
 </body>
 
 </html>

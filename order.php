@@ -235,7 +235,12 @@ $query_lietke_dh = mysqli_query($conn, $sql_lietke_dh);
                         <?php
                             }
                         } else {
-                            echo "No orders found.";
+                            echo '
+                            <div>
+                            <img src="https://cdn.dribbble.com/users/1753953/screenshots/3818675/animasi-emptystate.gif" alt="" class="w-[300px] mx-auto" />
+                            <p class="text-center mt-4">Bạn chưa có đơn hàng nào!</p>
+                            </div>
+                            ';
                         }
                         ?>
 

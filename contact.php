@@ -134,20 +134,20 @@ session_start();
           <div class="contact-left-item">
             <div class="contact-left-item-top">
               <img src="./image/icons/icons-phone.png" alt="" />
-              <p>Call To Us</p>
+              <p>Gọi cho chúng tôi</p>
             </div>
             <p class="contact-left-item-label">
-              We are available 24/7, 7 days a week.
+              Chúng tôi làm việc 24/24
             </p>
-            <span>Phone: +8801611112222</span>
+            <span>SDT: +8497645676</span>
           </div>
           <div class="contact-left-item">
             <div class="contact-left-item-top">
               <img src="./image/icons/icons-mail.png" alt="" />
-              <p>Write To US</p>
+              <p>Viết thư cho chúng tôi</p>
             </div>
             <p class="contact-left-item-label">
-              Fill out our form and we will contact you within 24 hours.
+              Điền vào biểu mẫu của chúng tôi và chúng tôi sẽ liên hệ với bạn trong vòng 24 giờ.
             </p>
             <span>Emails: customer@exclusive.com</span>
           </div>
@@ -155,12 +155,12 @@ session_start();
         <div class="contact-right">
           <form action="">
             <div class="contact-right-group">
-              <input type="text" placeholder="Your Name *" />
-              <input type="email" placeholder="Your Email *" />
-              <input type="text" placeholder="Your Phone *" />
+              <input type="text" placeholder="Tên *" />
+              <input type="email" placeholder="Email *" />
+              <input type="text" placeholder="SDT *" />
             </div>
-            <textarea name="" id="" placeholder="Your Massage"></textarea>
-            <button type="submit">Send Massage</button>
+            <textarea name="" id="" placeholder="Nội dung"></textarea>
+            <button type="submit">Gửi thư</button>
           </form>
         </div>
       </div>

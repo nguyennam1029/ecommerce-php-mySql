@@ -1,6 +1,10 @@
 <?php
 session_start();
 include('admin/config/connect.php');
+if (!isset($_SESSION['dangky'])) {
+    header('Location:sign-up.php');
+    exit();
+}
 //them so luong
 if (isset($_GET['cong'])) {
     $id = $_GET['cong'];
@@ -108,7 +112,7 @@ if (isset($_POST['muangay'])) {
             } else $_SESSION['cart'] = $product;
         } else
             $_SESSION['cart'] = $new_product;
-        header('Location:cart.php');
+        // header('Location:cart.php');
     }
 }
 //Thêm giỏ hàng

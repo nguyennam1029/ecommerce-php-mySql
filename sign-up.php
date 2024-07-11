@@ -8,33 +8,51 @@ if (isset($_POST['dangky'])) {
   $email = $_POST['email'];
   $dienthoai = $_POST['dienthoai'];
   $diachi = $_POST['diachi'];
-  $matkhau = md5($_POST['matkhau']);
+  $matkhau = $_POST['matkhau'];
 
   // Check for valid customer name
-  if (strlen($tenkhachhang) > 6 && ctype_upper($tenkhachhang[0])) {
-    // Check for duplicate email
-    $sql_check_email = "SELECT * FROM tbl_dangky WHERE email='$email'";
-    $query_check_email = mysqli_query($conn, $sql_check_email);
+  if (strlen($tenkhachhang) <= 6 || !ctype_upper($tenkhachhang[0])) {
+    echo "<script>alert('Tên khách hàng phải có độ dài lớn hơn 6 và có chữ cái đầu tiên viết hoa.'); window.history.back();</script>";
+    exit;
+  }
 
-    if (mysqli_num_rows($query_check_email) > 0) {
-      echo "<script>alert('Email đã tồn tại');</script>";
-    } else {
-      $sql_dangky = mysqli_query($conn, "INSERT INTO tbl_dangky(tenkhachhang, email, diachi, matkhau, dienthoai) VALUES('$tenkhachhang', '$email', '$diachi', '$matkhau', '$dienthoai')");
-      if ($sql_dangky) {
-        $_SESSION['dangky'] = $tenkhachhang;
-        echo "<script>alert('Đăng kí thành công');</script>";
-        // echo "<script>window.location.href='../../index.php?action=quanlikhachhang&query=lietke';</script>";
+  // Check for valid email format and domain
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL) || substr($email, -10) !== '@gmail.com') {
+    echo "<script>alert('Email phải có định dạng hợp lệ và đuôi @gmail.com.'); window.history.back();</script>";
+    exit;
+  }
 
-        header('Location:login.php');
-      } else {
-        echo "<script>alert('Đăng ký không thành công');</script>";
-      }
-    }
+  // Check for valid password
+  if (strlen($matkhau) < 6 || !preg_match('/[A-Z]/', $matkhau)) {
+    echo "<script>alert('Mật khẩu phải có độ dài ít nhất 6 kí tự và có ít nhất một chữ cái in hoa.'); window.history.back();</script>";
+    exit;
+  }
+
+  // Check for valid phone number
+  if (strlen($dienthoai) < 10) {
+    echo "<script>alert('Số điện thoại phải có độ dài ít nhất 10 kí tự.'); window.history.back();</script>";
+    exit;
+  }
+
+  // Check for duplicate email
+  $sql_check_email = "SELECT * FROM tbl_dangky WHERE email='$email'";
+  $query_check_email = mysqli_query($conn, $sql_check_email);
+
+  if (mysqli_num_rows($query_check_email) > 0) {
+    echo "<script>alert('Email đã tồn tại');window.history.back();</script>";
   } else {
-    echo "<script>alert('Tên khách hàng phải có độ dài lớn hơn 6 và có chữ cái đầu tiên viết hoa.');</script>";
+    $sql_dangky = mysqli_query($conn, "INSERT INTO tbl_dangky(tenkhachhang, email, diachi, matkhau, dienthoai) VALUES('$tenkhachhang', '$email', '$diachi', '" . md5($matkhau) . "', '$dienthoai')");
+    if ($sql_dangky) {
+      // $_SESSION['dangky'] = $tenkhachhang;
+      echo "<script>alert('Đăng kí thành công'); window.location.href='login.php';</script>";
+    } else {
+      echo "<script>alert('Đăng ký không thành công');</script>";
+    }
   }
 }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -170,10 +188,13 @@ if (isset($_POST['dangky'])) {
           <h2 class="form_title">Tạo tài khoản của bạn</h2>
           <p class="auth_p">Nhập thông tin chi tiết của bạn dưới đây</p>
           <div class="form_group">
-            <input type="text" placeholder="Họ và Tên6 kí tự trở lên và chữ cái đầu phải in hoa VD: Hải dev, FullStack..." name="hovaten" class="form_input" />
+            <input type="text" placeholder="Họ và Tên: 6 kí tự trở lên và chữ cái đầu phải in hoa VD: Hải dev, FullStack..." name="hovaten" class="form_input" />
           </div>
           <div class="form_group">
             <input type="text" placeholder="Email" name="email" class="form_input" />
+          </div>
+          <div class="form_group form_pass">
+            <input type="text" placeholder="Mật khẩu: phải có độ dài ít nhất 6 kí tự và có IN HOA" class="form_input" name="matkhau" />
           </div>
           <div class="form_group">
             <input type="text" placeholder="Điện thoại" name="dienthoai" class="form_input" />
@@ -181,9 +202,7 @@ if (isset($_POST['dangky'])) {
           <div class="form_group">
             <input type="text" placeholder="Địa chỉ" name="diachi" class="form_input" />
           </div>
-          <div class="form_group form_pass">
-            <input type="text" placeholder="Password" class="form_input" name="matkhau" />
-          </div>
+
           <div class="form_group">
             <input type="submit" class="form_btn" name="dangky" value="Create Account">
           </div>

@@ -183,3 +183,16 @@ input {
         width: 100%;
     }
 }
+
+.password-toggle {
+    position: relative;
+}
+.password-toggle > input{
+    position: relative;
+}
+.eye-toggle {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-50%,-36%);
+}

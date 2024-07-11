@@ -354,7 +354,7 @@ session_start();
       </div>
       <div class="categories">
         <div class="category">
-          <a href="products.php?quanlidanhmucsanpham&id=2">
+          <a href="products.php?quanlidanhmucsanpham&id=3">
             <img src="./image/icons/camera.png" alt="" class="category_icon" />
             <p class="category_name">Cameras</p>
           </a>
@@ -365,25 +365,25 @@ session_start();
           </a>
         </div>
         <div class="category">
-          <a href="products.php?quanlidanhmucsanpham&id=2">
+          <a href="products.php?quanlidanhmucsanpham&id=4">
             <img src="./image/icons/gaming.png" alt="" class="category_icon" />
             <p class="category_name">Gaming</p>
           </a>
         </div>
         <div class="category">
-          <a href="products.php?quanlidanhmucsanpham&id=2">
+          <a href="products.php?quanlidanhmucsanpham&id=5">
             <img src="./image/icons/headphone.png" alt="" class="category_icon" />
             <p class="category_name">Headphones</p>
           </a>
         </div>
         <div class="category">
-          <a href="products.php?quanlidanhmucsanpham&id=2">
+          <a href="products.php?quanlidanhmucsanpham&id=6">
             <img src="./image/icons/phone.png" alt="" class="category_icon" />
             <p class="category_name">Phones</p>
           </a>
         </div>
         <div class="category">
-          <a href="products.php?quanlidanhmucsanpham&id=2">
+          <a href="products.php?quanlidanhmucsanpham&id=7">
             <img src="./image/icons/watch.png" alt="" class="category_icon" />
             <p class="category_name">Watches</p>
           </a>
@@ -668,17 +668,17 @@ session_start();
       <div class="service">
         <img src="./image/icons/service-1.png" alt="" class="service_img" />
         <h3 class="service_title">GIAO HÀNG NHANH VÀ MIỄN PHÍ</h3>
-        <p class="service_p">Lorem ipsum dolor sit amet consectetur.</p>
+        <p class="service_p">Tùy vào thời điểm bạn đặt hàng và khoảng cách shop tới bạn.</p>
       </div>
       <div class="service">
         <img src="./image/icons/service-2.png" alt="" class="service_img" />
         <h3 class="service_title">Hỗ trợ 24/7</h3>
-        <p class="service_p">Lorem ipsum dolor sit amet consectetur.</p>
+        <p class="service_p">Nhằm nâng cao dịch vụ chung tôi sẻ trực và hỗ trợ các bạn mọi lúc và mọi nơi.</p>
       </div>
       <div class="service">
         <img src="./image/icons/service-3.png" alt="" class="service_img" />
         <h3 class="service_title">ĐẢM BẢO HOÀN TIỀN</h3>
-        <p class="service_p">Lorem ipsum dolor sit amet consectetur.</p>
+        <p class="service_p">Mọi chính sách đều bảo vệ quyền tiêu dùng của mọi người.</p>
       </div>
     </div>
   </section>
