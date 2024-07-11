@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 10, 2024 at 08:38 PM
+-- Generation Time: Jul 11, 2024 at 04:22 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -135,7 +135,7 @@ CREATE TABLE `tbl_dangky` (
 
 INSERT INTO `tbl_dangky` (`id_dangky`, `tenkhachhang`, `email`, `diachi`, `matkhau`, `dienthoai`) VALUES
 (8, 'Hà Ánh', 'vanh12345@gmail.com', 'Hà Nội', '25f9e794323b453885f5181f1b624d0b', '09876583'),
-(9, 'Huyền My', 'thuyduong@gmail.com', 'hfdhh', 'c4ca4238a0b923820dcc509a6f75849b', '97787878'),
+(9, 'Huyền Bab', 'thuyduong@gmail.com', 'Hai Bà Trưng - Hà Nội', '77996899c5e95fade5daa83c9d82d57b', '9876599999'),
 (10, 'vsvs', 'vvsvv@gmail.com', 'hfdhh', 'c4ca4238a0b923820dcc509a6f75849b', '97787878'),
 (11, 'egr', 'namcoi1029scs@gmail.com', 'hfdhh', 'c4ca4238a0b923820dcc509a6f75849b', '123456789'),
 (23, 'gg', 'diepviegdgnbaothu629@gmail.com', 'Ha Noi', 'c4ca4238a0b923820dcc509a6f75849b', '123456789'),
@@ -148,7 +148,9 @@ INSERT INTO `tbl_dangky` (`id_dangky`, `tenkhachhang`, `email`, `diachi`, `matkh
 (30, 'Tâttatat', 'ThuyduongjUpdate@gmail.com', '12345', 'd81f9c1be2e08964bf9f24b15f0e4900', '12345'),
 (31, 'Testtesst', 'test@gmail.com', '1', 'c4ca4238a0b923820dcc509a6f75849b', '1'),
 (32, 'Namblalval', 'namcosffi1029@gmail.com', 'ưer', 'c4ca4238a0b923820dcc509a6f75849b', '12'),
-(33, 'Faads@gmail.com', 'faads@gmail.com', '1', 'c4ca4238a0b923820dcc509a6f75849b', '1');
+(33, 'Faads@gmail.com', 'faads@gmail.com', '1', 'c4ca4238a0b923820dcc509a6f75849b', '1'),
+(34, 'FullStack', 'thuyduong2@gmail.com', 'ádfghk', '0560c40ef3a747d50109a3011a9b4f9c', '1234567894'),
+(35, 'FullStack', 'thuyduonssg@gmail.com', '12345678', '0d4e40afa0f287e14ba0964b890105e8', '1234567891');
 
 -- --------------------------------------------------------
 
@@ -293,7 +295,7 @@ ALTER TABLE `tbl_cart_detail`
 -- AUTO_INCREMENT for table `tbl_dangky`
 --
 ALTER TABLE `tbl_dangky`
-  MODIFY `id_dangky` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_dangky` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `tbl_danhmuc`

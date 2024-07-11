@@ -74,6 +74,10 @@ if (isset($_POST['capnhat'])) {
     }
   }
 }
+if (isset($_POST['dangxuat'])) {
+  unset($_SESSION['dangky']);
+  header('Location:index.php');
+}
 ?>
 
 <!DOCTYPE html>
