@@ -77,6 +77,8 @@ if ($_SESSION['cart'] && isset($_GET['xoa'])) {
     }
 }
 //Mua ngay
+
+//them sanpham 
 if (isset($_POST['muangay'])) {
 
     $id = $_GET['idsanpham'];
@@ -112,9 +114,11 @@ if (isset($_POST['muangay'])) {
             } else $_SESSION['cart'] = $product;
         } else
             $_SESSION['cart'] = $new_product;
-        // header('Location:cart.php');
+        header('Location:cart.php');
     }
 }
+
+
 //Thêm giỏ hàng
 
 if (isset($_POST['themgiohang'])) {
@@ -177,6 +181,9 @@ if (isset($_POST['themgiohang'])) {
         }
 
         // Thông báo thành công và chuyển hướng về trang giỏ hàng
-        echo '<script>alert("Thêm sản phẩm vào giỏ hàng thành công!"); window.location=`detail.php?quanli=sanpham&idsanpham=' . $id . '`;</script>';
+        echo '<script>
+    alert("Thêm sản phẩm vào giỏ hàng thành công!");
+    window.location = `detail.php?quanli=sanpham&idsanpham=' . $id . '`;
+</script>';
     }
 }

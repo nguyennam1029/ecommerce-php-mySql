@@ -288,6 +288,7 @@ input::-webkit-inner-spin-button {
   border-left: 1px solid rgba(0, 0, 0, 0.5);
 }
 .product-detail-btn-buynow {
+  cursor: pointer;
   outline: none;
   border: none;
   display: flex;
