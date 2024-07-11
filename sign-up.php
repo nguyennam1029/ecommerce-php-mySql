@@ -198,8 +198,19 @@ if (isset($_POST['dangky'])) {
           <div class="form_group">
             <input type="text" placeholder="Email" name="email" class="form_input" />
           </div>
-          <div class="form_group form_pass">
-            <input type="text" placeholder="Mật khẩu: phải có độ dài ít nhất 6 kí tự và có IN HOA" class="form_input" name="matkhau" />
+          <div class="form_group form_pass password-toggle">
+            <input type="password" id="new-password" placeholder="Password: 6 kí tự trở lên và có chữ in hoa" name="matkhau" class="form_input" />
+            <span toggle="#new-password" class="eye-toggle eye-toggle-signUp" onclick="togglePasswordVisibility(this)">
+              <!-- Icon hiển thị mật khẩu -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 eye-icon" id="eye-icon-open">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <!-- Icon ẩn mật khẩu -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 eye-icon" id="eye-icon-closed" style="display: none;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+              </svg>
+            </span>
           </div>
           <div class="form_group">
             <input type="text" placeholder="Điện thoại" name="dienthoai" class="form_input" />
@@ -209,7 +220,7 @@ if (isset($_POST['dangky'])) {
           </div>
 
           <div class="form_group">
-            <input type="submit" class="form_btn" name="dangky" value="Create Account">
+            <input type="submit" class="form_btn" name="dangky" value="Đăng ký">
           </div>
         </form>
         <div class="form_group">
@@ -262,6 +273,23 @@ if (isset($_POST['dangky'])) {
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script src="./js/app.js"></script>
+  <script>
+    function togglePasswordVisibility(element) {
+      const input = document.querySelector(element.getAttribute('toggle'));
+      const eyeIconOpen = document.getElementById('eye-icon-open');
+      const eyeIconClosed = document.getElementById('eye-icon-closed');
+
+      if (input.getAttribute('type') === 'password') {
+        input.setAttribute('type', 'text');
+        eyeIconOpen.style.display = 'none';
+        eyeIconClosed.style.display = 'block';
+      } else {
+        input.setAttribute('type', 'password');
+        eyeIconOpen.style.display = 'block';
+        eyeIconClosed.style.display = 'none';
+      }
+    }
+  </script>
 </body>
 
 </html>

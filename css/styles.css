@@ -976,6 +976,25 @@ ul {
 .form_pass {
   margin-bottom: 1rem;
 }
+.password-toggle {
+  /* position: relative; */
+}
+
+.password-toggle>input {
+  position: relative;
+}
+
+.eye-toggle {
+  position: absolute;
+  top: 50%;
+  right: 106px;
+
+  cursor: pointer  ;
+  z-index: 100;
+}
+.eye-toggle-signUp {
+  top: 45% !important;
+}
 .form_btn {
   width: 100%;
   padding: 1.3rem;
