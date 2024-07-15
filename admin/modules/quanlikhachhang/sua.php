@@ -35,11 +35,16 @@ $query_sua_khachhang = mysqli_query($conn, $sql_sua_khachhang);
                 <label for="diachi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Địa chỉ</label>
                 <input type="text" value="<?php echo $dong['diachi'] ?>" name="diachi" id="diachi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="$2999" required="">
             </div>
-            <button name="suakhachhang" type="submit" class="flex items-center col-span-2 mx-auto px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-[#0083ff] rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+
+
+        </div>
+        <div class="flex items-center justify-center gap-10 mt-6">
+
+            <button name="suakhachhang" type="submit" class="flex items-center col-span-2 px-5 py-2.5  text-sm font-medium text-center text-white bg-[#0083ff] rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                 Cập nhật
             </button>
+            <a href="index.php?action=quanlikhachhang&query=lietke" class="py-2.5 px-5  text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Quay lại</a>
         </div>
-
     <?php
 
     } ?>

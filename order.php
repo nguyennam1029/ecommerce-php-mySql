@@ -16,6 +16,14 @@ $sql_lietke_dh = "SELECT * FROM tbl_cart, tbl_dangky
                   AND tbl_cart.id_khachhang = '$id_khachhang'";
 $query_lietke_dh = mysqli_query($conn, $sql_lietke_dh);
 
+
+if (isset($_GET['cart_status']) && isset($_GET['code'])) {
+    $status = $_GET['cart_status'];
+    $code = $_GET['code'];
+    $sql_update = "update tbl_cart set cart_status='" . $status . "' where code_cart='" . $code . "'";
+    $query = mysqli_query($conn, $sql_update);
+    header('Location:order.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -154,7 +162,7 @@ $query_lietke_dh = mysqli_query($conn, $sql_lietke_dh);
 
 
                         <div class="grid grid-cols-8 py-4 bg-gray-400 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
-                            <div class="col-span-3 flex items-center justify-center">
+                            <div class="col-span-2 flex items-center ">
                                 <p class="font-medium">Tên Khách hàng</p>
                             </div>
 
@@ -167,7 +175,7 @@ $query_lietke_dh = mysqli_query($conn, $sql_lietke_dh);
                             <div class="col-span-2 hidden items-center sm:flex justify-center">
                                 <p class="font-medium">Địa chỉ</p>
                             </div>
-                            <div class="col-span-1 flex items-center justify-center">
+                            <div class="col-span-2 flex items-center justify-center">
                                 <p class="font-medium">Trạng thái</p>
                             </div>
                         </div>
@@ -176,7 +184,7 @@ $query_lietke_dh = mysqli_query($conn, $sql_lietke_dh);
                             while ($row = mysqli_fetch_assoc($query_lietke_dh)) {
                         ?>
                                 <div class="grid grid-cols-8 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
-                                    <div class="col-span-3 flex items-center justify-center">
+                                    <div class="col-span-2 flex items-center ">
                                         <div class="flex flex-col gap-4 sm:flex-row sm:items-center ">
                                             <div class="h-12.5 w-15 rounded-md">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -208,7 +216,7 @@ $query_lietke_dh = mysqli_query($conn, $sql_lietke_dh);
                                             <?php echo $row['diachi']; ?>
                                         </p>
                                     </div>
-                                    <div class="col-span-1 flex items-center justify-center">
+                                    <div class="col-span-2 flex items-center justify-center">
                                         <p class="text-[14px] font-medium text-meta-3"></p>
                                         <div class="flex items-center space-x-3.5">
                                             <a href="order-detail.php?code=<?php echo $row['code_cart'] ?>" class="hover:text-primary">
@@ -218,12 +226,38 @@ $query_lietke_dh = mysqli_query($conn, $sql_lietke_dh);
                                                 </svg>
                                             </a>
                                             <?php
-                                            if ($row['cart_status'] == 1) {
-                                                echo '<span class="inline-flex items-center px-3 py-1.5 rounded-full text-[14px] font-medium bg-red-100 text-red-800">Đang xử lí</span>';
-                                            } else {
-                                                echo '<span class="inline-flex items-center px-3 py-1.5 rounded-full text-[14px] font-medium bg-blue-100 text-blue-800">Đã xử lí</span>';
+                                            switch ($row['cart_status']) {
+
+                                                case '1':
+                                                    echo '<span class="inline-flex items-center px-3 py-1.5 rounded-full text-[14px] font-medium bg-[#FFD21E] text-gray-800"> Đang xử lý</span>';
+                                                    break;
+                                                case '2':
+                                                    echo '<span class="inline-flex items-center px-3 py-1.5 rounded-full text-[14px] font-medium bg-[#F04248] text-gray-800"> Đã hủy</span>';
+                                                    break;
                                             }
                                             ?>
+                                            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown<?php echo $row['code_cart']; ?>" class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600" type="button">
+                                                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 4 15">
+                                                    <path d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                                                </svg>
+                                            </button>
+                                            <!-- Dropdown menu -->
+                                            <div id="dropdown<?php echo $row['code_cart']; ?>" class="z-10 hidden bg-white divide-x divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                                <ul class="py-2 text-[14px] text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+
+                                                    <li>
+                                                        <?php
+                                                        if ($row['cart_status'] == 1) {
+                                                            echo '<a href="order.php?cart_status=2&code=' . $row['code_cart'] . '" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Hủy đơn</a>';
+                                                        } else {
+                                                            echo '<a href="order.php?cart_status=1&code=' . $row['code_cart'] . '" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Đặt lại</a>';
+                                                        }
+                                                        ?>
+
+                                                    </li>
+
+                                                </ul>
+                                            </div>
                                         </div>
                                         <p></p>
                                     </div>
@@ -284,8 +318,26 @@ $query_lietke_dh = mysqli_query($conn, $sql_lietke_dh);
             </div>
         </div>
     </footer>
+    <!-- Add these lines in the head or just before the closing body tag of your HTML -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+    <script>
+        // Toggle dropdown visibility
+        document.getElementById('dropdownDefaultButton').addEventListener('click', function() {
+            var dropdown = document.getElementById('dropdown');
+            dropdown.classList.toggle('hidden');
+        });
 
+        // Optional: Close dropdown when clicking outside
+        window.addEventListener('click', function(event) {
+            var dropdown = document.getElementById('dropdown');
+            if (!event.target.closest('#dropdownDefaultButton')) {
+                dropdown.classList.add('hidden');
+            }
+        });
+    </script>
 </body>
 
 </html>
