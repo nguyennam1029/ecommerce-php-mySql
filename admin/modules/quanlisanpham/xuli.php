@@ -20,7 +20,7 @@ if (isset($_POST['themsanpham'])) {
                  VALUES ('" . $tensanpham . "', '" . $masp . "', '" . $giasp . "', '" . $giaban . "', '" . $soluong . "', '" . $hinhanh_new . "', '" . $tomtat . "', '" . $noidung . "', '" . $thuctrang . "', '" . $danhmuc . "')";
     mysqli_query($conn, $sql_them);
     move_uploaded_file($hinhanh_tmp, 'uploads/' . $hinhanh_new);
-    header('Location:../../index.php?action=quanlisanpham&query=them');
+    header('Location:../../index.php?action=quanlisanpham&query=them&success=Thêm sản phẩm thành công');
 } else if (isset($_POST['suasanpham'])) {
     // Sửa sản phẩm
     if ($hinhanh != '') {
@@ -37,7 +37,7 @@ if (isset($_POST['themsanpham'])) {
         $sql_sua = "UPDATE tbl_sanpham SET tensanpham ='" . $tensanpham . "', masp='" . $masp . "', giasp='" . $giasp . "', giaban='" . $giaban . "', soluong='" . $soluong . "', tomtat='" . $tomtat . "', noidung='" . $noidung . "', thuctrang='" . $thuctrang . "', id_danhmuc='" . $danhmuc . "' WHERE id_sanpham='" . $_GET['idsanpham'] . "'";
     }
     mysqli_query($conn, $sql_sua);
-    header('Location:../../index.php?action=quanlisanpham&query=them');
+    header('Location:../../index.php?action=quanlisanpham&query=them&success=Cập nhật sản phẩm thành công');
 } else {
     // Xóa sản phẩm
     $id = $_GET['idsanpham'];
@@ -48,5 +48,5 @@ if (isset($_POST['themsanpham'])) {
     }
     $sql_xoa = "DELETE FROM tbl_sanpham WHERE id_sanpham='$id'";
     mysqli_query($conn, $sql_xoa);
-    header('Location:../../index.php?action=quanlisanpham&query=them');
+    header('Location:../../index.php?action=quanlisanpham&query=them&success=Xóa sản phẩm thành công');
 }

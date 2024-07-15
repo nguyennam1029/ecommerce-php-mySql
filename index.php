@@ -52,9 +52,7 @@ session_start();
         ?>
           <!-- Div cho trạng thái đã đăng nhập -->
           <div class="user-actions">
-            <a href="./liked.html" class="user-actions-liked">
-              <img src="./image/heart.png" alt="" />
-            </a>
+
 
             <a href="./cart.php">
               <img src="./image/cart.png" alt="" />
@@ -90,9 +88,7 @@ session_start();
       </div>
       <!-- Div cho trạng thái đã đăng nhập -->
       <div class="user-actions">
-        <a href="./liked.html" class="user-actions-liked">
-          <img src="./image/heart.png" alt="" />
-        </a>
+
 
         <a href="/cart.html">
           <img src="./image/cart.png" alt="" />

@@ -1010,3 +1010,230 @@ ul {
 .form_group > span {
   margin-top: 2rem;
 }
+.noti {
+  position: fixed;
+  right: 12px;
+  top: 66px;
+  background-color: rgb(244, 244, 244);
+  /*box-shadow      : rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    */
+  border-radius: 8px;
+  display: flex;
+  transform: translateX(150%);
+  animation: noti 6s forwards 1 linear;
+  z-index: 9999;
+  -webkit-transform: translateX(150%);
+  -moz-transform: translateX(150%);
+  -ms-transform: translateX(150%);
+  -o-transform: translateX(150%);
+  -webkit-animation: noti 6s forwards 1 linear;
+  box-shadow: -15px 17px 16px -12px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: -15px 17px 16px -12px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes noti {
+
+  20%,
+  80% {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(150%);
+    -webkit-transform: translateX(150%);
+    -moz-transform: translateX(150%);
+    -ms-transform: translateX(150%);
+    -o-transform: translateX(150%);
+  }
+}
+
+
+.noti-content {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.noti-content i {
+  color: #000000;
+  margin-right: 8px;
+  background: linear-gradient(to right, #ff8a00, #ff2070);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  animation: 1.2s ease infinite;
+}
+
+.noti-title {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+}
+
+@keyframes tada {
+  0% {
+    /* -webkit-transform: scale3d(1,1,1); */
+    /* transform: scale3d(1,1,1); */
+  }
+
+  10%,
+  20% {
+    /* -webkit-transform: scale3d(.95,.95,.95) rotate3d(0,0,1,-10deg); */
+    /* transform: scale3d(.95,.95,.95) rotate3d(0,0,1,-10deg); */
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 10deg);
+    transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 10deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    -webkit-transform: rotate3d(0, 0, 1, -10deg);
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+
+.toast {
+  position: fixed;
+  top: 86px;
+  right: 30px;
+  border-radius: 6px;
+  background: #242C32;
+  /* padding   : 2px 35px 20px 25px; */
+  padding: 12px 16px;
+  /* box-shadow: 0 5px 10px rgb(0 0 0 / 10%); */
+  box-shadow: 0px 16px 24px 0px rgba(0, 0, 0, 0.14), 0px 6px 30px 0px rgba(0, 0, 0, 0.12), 0px 8px 10px 0px rgba(0, 0, 0, 0.20);
+  border-left: 4px solid #F04248;
+  overflow: hidden;
+  transform: translateX(calc(100% + 30px));
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+}
+
+.toast.active {
+  transform: translateX(0%);
+}
+
+.toast .toast-content {
+  display: flex;
+  align-items: center;
+}
+
+.toast-content i {
+  color: red;
+  font-size: 20px;
+}
+
+.toast-content .check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  width: 20px;
+  background-color: #a70b22;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 50%;
+}
+
+.toast-content .message {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+}
+
+.message .text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #666666;
+}
+
+.message .text.text-1 {
+  color: #FFF;
+  
+    /* iOS/Regular/Headline */
+    /* font-family: "SF Pro Text"; */
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+    /* 129.412% */
+    letter-spacing: -0.408px;
+}
+
+.text.text-2 {
+color: #C8C5C5;
+
+  /* iOS/Regular/Footnote  */
+  /* font-family: "SF Pro Text"; */
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  /* 138.462% */
+  letter-spacing: -0.078px;
+}
+.close-image {
+  cursor: pointer;
+}
+.toast .close {
+  position: absolute;
+  top: 5px;
+  right: 11px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  opacity: 0.7;
+  color: #333;
+}
+
+.toast .close:hover {
+  opacity: 1;
+}
+
+.toast .progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: #ddd;
+}
+
+.toast .progress:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #d92457;
+}
+
+.progress.active:before {
+  animation: progress 5s linear forwards;
+}
+
+@keyframes progress {
+  100% {
+    right: 100%;
+  }
+}
+
+/* END-TOAST  */

@@ -46,7 +46,49 @@ if (isset($_POST['capnhat'])) {
     $query_update = mysqli_query($conn, $sql_update);
 
     if ($query_update) {
-      echo "<script>alert('Cập nhật thông tin và mật khẩu thành công');</script>";
+      echo "<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toast = document.createElement('div');
+            toast.className = 'toast active';
+            toast.innerHTML = `
+                <div class='toast-content'>
+                    <img src='./image/icons/success.png' class='close-image' />
+                    <div class='message'>
+                        <span class='text text-1'>Thành công</span>
+                        <span class='text text-2'>Cập nhật thông tin thành công.</span>
+                    </div>
+                </div>
+                <i class='fa-solid fa-xmark close'></i>
+                <div class='progress active'></div>
+            `;
+            document.body.appendChild(toast);
+            
+            const progress = toast.querySelector('.progress');
+            const closeIcon = toast.querySelector('.close');
+            let timer1, timer2;
+
+            timer1 = setTimeout(() => {
+                toast.classList.remove('active');
+            }, 4000); //1s = 1000 milliseconds
+
+            timer2 = setTimeout(() => {
+                progress.classList.remove('active');
+            }, 4300);
+
+            closeIcon.addEventListener('click', () => {
+                toast.classList.remove('active');
+                setTimeout(() => {
+                    progress.classList.remove('active');
+                }, 300);
+                clearTimeout(timer1);
+                clearTimeout(timer2);
+             
+            });
+            
+          
+        });
+        
+    </script>";
       // Cập nhật lại thông tin trong session nếu cần thiết
       $_SESSION['dangky'] = $tenkhachhang;
       // Làm mới dữ liệu của $row để hiển thị thông tin mới sau khi cập nhật
@@ -54,7 +96,49 @@ if (isset($_POST['capnhat'])) {
       $row['dienthoai'] = $dienthoai;
       $row['diachi'] = $diachi;
     } else {
-      echo "<script>alert('Cập nhật thông tin và mật khẩu không thành công');</script>";
+      echo "<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toast = document.createElement('div');
+            toast.className = 'toast active';
+            toast.innerHTML = `
+                <div class='toast-content'>
+                    <img src='./image/icons/false.png' class='close-image' />
+                    <div class='message'>
+                        <span class='text text-1'>Thất bại</span>
+                        <span class='text text-2'>Vui lòng thử lại!</span>
+                    </div>
+                </div>
+                <i class='fa-solid fa-xmark close'></i>
+                <div class='progress active'></div>
+            `;
+            document.body.appendChild(toast);
+            
+            const progress = toast.querySelector('.progress');
+            const closeIcon = toast.querySelector('.close');
+            let timer1, timer2;
+
+            timer1 = setTimeout(() => {
+                toast.classList.remove('active');
+            }, 5000); //1s = 1000 milliseconds
+
+            timer2 = setTimeout(() => {
+                progress.classList.remove('active');
+            }, 5300);
+
+            closeIcon.addEventListener('click', () => {
+                toast.classList.remove('active');
+                setTimeout(() => {
+                    progress.classList.remove('active');
+                }, 300);
+                clearTimeout(timer1);
+                clearTimeout(timer2);
+               
+            });
+            
+           
+        });
+        
+    </script>";
     }
   } else {
     // Nếu người dùng không nhập mật khẩu mới, chỉ cập nhật thông tin khác
@@ -62,7 +146,49 @@ if (isset($_POST['capnhat'])) {
     $query_update = mysqli_query($conn, $sql_update);
 
     if ($query_update) {
-      echo "<script>alert('Cập nhật thông tin thành công');</script>";
+      echo "<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toast = document.createElement('div');
+            toast.className = 'toast active';
+            toast.innerHTML = `
+                <div class='toast-content'>
+                    <img src='./image/icons/success.png' class='close-image' />
+                    <div class='message'>
+                        <span class='text text-1'>Thành công</span>
+                        <span class='text text-2'>Cập nhật thông tin hoàn tất.</span>
+                    </div>
+                </div>
+                <i class='fa-solid fa-xmark close'></i>
+                <div class='progress active'></div>
+            `;
+            document.body.appendChild(toast);
+            
+            const progress = toast.querySelector('.progress');
+            const closeIcon = toast.querySelector('.close');
+            let timer1, timer2;
+
+            timer1 = setTimeout(() => {
+                toast.classList.remove('active');
+            }, 4000); //1s = 1000 milliseconds
+
+            timer2 = setTimeout(() => {
+                progress.classList.remove('active');
+            }, 4300);
+
+            closeIcon.addEventListener('click', () => {
+                toast.classList.remove('active');
+                setTimeout(() => {
+                    progress.classList.remove('active');
+                }, 300);
+                clearTimeout(timer1);
+                clearTimeout(timer2);
+             
+            });
+            
+         
+        });
+        
+    </script>";
       // Cập nhật lại thông tin trong session nếu cần thiết
       $_SESSION['dangky'] = $tenkhachhang;
       // Làm mới dữ liệu của $row để hiển thị thông tin mới sau khi cập nhật
@@ -70,7 +196,49 @@ if (isset($_POST['capnhat'])) {
       $row['dienthoai'] = $dienthoai;
       $row['diachi'] = $diachi;
     } else {
-      echo "<script>alert('Cập nhật thông tin không thành công');</script>";
+      echo "<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toast = document.createElement('div');
+            toast.className = 'toast active';
+            toast.innerHTML = `
+                <div class='toast-content'>
+                    <img src='./image/icons/false.png' class='close-image' />
+                    <div class='message'>
+                        <span class='text text-1'>Thất bại</span>
+                        <span class='text text-2'>Vui lòng thử lại!</span>
+                    </div>
+                </div>
+                <i class='fa-solid fa-xmark close'></i>
+                <div class='progress active'></div>
+            `;
+            document.body.appendChild(toast);
+            
+            const progress = toast.querySelector('.progress');
+            const closeIcon = toast.querySelector('.close');
+            let timer1, timer2;
+
+            timer1 = setTimeout(() => {
+                toast.classList.remove('active');
+            }, 5000); //1s = 1000 milliseconds
+
+            timer2 = setTimeout(() => {
+                progress.classList.remove('active');
+            }, 5300);
+
+            closeIcon.addEventListener('click', () => {
+                toast.classList.remove('active');
+                setTimeout(() => {
+                    progress.classList.remove('active');
+                }, 300);
+                clearTimeout(timer1);
+                clearTimeout(timer2);
+               
+            });
+            
+           
+        });
+        
+    </script>";
     }
   }
 }
@@ -129,9 +297,7 @@ if (isset($_POST['dangxuat'])) {
         ?>
           <!-- Div cho trạng thái đã đăng nhập -->
           <div class="user-actions">
-            <a href="./liked.html" class="user-actions-liked">
-              <img src="./image/heart.png" alt="" />
-            </a>
+
 
             <a href="./cart.php">
               <img src="./image/cart.png" alt="" />
@@ -167,9 +333,7 @@ if (isset($_POST['dangxuat'])) {
       </div>
       <!-- Div cho trạng thái đã đăng nhập -->
       <div class="user-actions">
-        <a href="./liked.html" class="user-actions-liked">
-          <img src="./image/heart.png" alt="" />
-        </a>
+
 
         <a href="/cart.html">
           <img src="./image/cart.png" alt="" />

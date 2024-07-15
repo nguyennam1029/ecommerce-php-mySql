@@ -22,10 +22,8 @@ if (isset($_POST['dangky'])) {
             $sql_dangky = mysqli_query($conn, "INSERT INTO tbl_dangky(tenkhachhang, email, diachi, matkhau, dienthoai) VALUES('$tenkhachhang', '$email', '$diachi', '$matkhau', '$dienthoai')");
             if ($sql_dangky) {
                 $_SESSION['dangky'] = $tenkhachhang;
-                echo "<script>alert('Bạn đã thêm thành công');</script>";
-                // echo "<script>window.location.href='../../index.php?action=quanlikhachhang&query=lietke';</script>";
 
-                // header('Location:login.php');
+                echo "<script>window.location.href='/DATN/admin/index.php?action=quanlikhachhang&query=lietke&success=Thêm người dùng thành công';</script>";
             } else {
                 echo "<script>alert('Đăng ký không thành công');</script>";
             }

@@ -13,6 +13,7 @@ if (!isset($_SESSION['dangnhapad'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
     .fill-primary {
       fill: rgb(60, 80, 224);
@@ -27,6 +28,12 @@ if (!isset($_SESSION['dangnhapad'])) {
       fill: rgb(16, 185, 129);
     }
   </style>
+  <!-- SweetAlert2 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+  <!-- SweetAlert2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
 </head>
 
 <body>

@@ -44,12 +44,97 @@ if (isset($_POST['dangky'])) {
   $query_check_email = mysqli_query($conn, $sql_check_email);
 
   if (mysqli_num_rows($query_check_email) > 0) {
-    echo "<script>alert('Email đã tồn tại');window.history.back();</script>";
+    echo "<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toast = document.createElement('div');
+            toast.className = 'toast active';
+            toast.innerHTML = `
+                <div class='toast-content'>
+                    <img src='./image/icons/false.png' class='close-image' />
+                    <div class='message'>
+                        <span class='text text-1'>Thất bại</span>
+                        <span class='text text-2'>Email này đã được sử dụng</span>
+                    </div>
+                </div>
+                <i class='fa-solid fa-xmark close'></i>
+                <div class='progress active'></div>
+            `;
+            document.body.appendChild(toast);
+            
+            const progress = toast.querySelector('.progress');
+            const closeIcon = toast.querySelector('.close');
+            let timer1, timer2;
+
+            timer1 = setTimeout(() => {
+                toast.classList.remove('active');
+            }, 5000); //1s = 1000 milliseconds
+
+            timer2 = setTimeout(() => {
+                progress.classList.remove('active');
+            }, 5300);
+
+            closeIcon.addEventListener('click', () => {
+                toast.classList.remove('active');
+                setTimeout(() => {
+                    progress.classList.remove('active');
+                }, 300);
+                clearTimeout(timer1);
+                clearTimeout(timer2);
+               
+            });
+            
+           
+        });
+        
+    </script>";
   } else {
     $sql_dangky = mysqli_query($conn, "INSERT INTO tbl_dangky(tenkhachhang, email, diachi, matkhau, dienthoai) VALUES('$tenkhachhang', '$email', '$diachi', '" . md5($matkhau) . "', '$dienthoai')");
     if ($sql_dangky) {
-      // $_SESSION['dangky'] = $tenkhachhang;
-      echo "<script>alert('Đăng kí thành công'); window.location.href='login.php';</script>";
+      echo "<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toast = document.createElement('div');
+            toast.className = 'toast active';
+            toast.innerHTML = `
+                <div class='toast-content'>
+                    <img src='./image/icons/success.png' class='close-image' />
+                    <div class='message'>
+                        <span class='text text-1'>Thành công</span>
+                        <span class='text text-2'>Đăng kí tài khoản thành công</span>
+                    </div>
+                </div>
+                <i class='fa-solid fa-xmark close'></i>
+                <div class='progress active'></div>
+            `;
+            document.body.appendChild(toast);
+            
+            const progress = toast.querySelector('.progress');
+            const closeIcon = toast.querySelector('.close');
+            let timer1, timer2;
+
+            timer1 = setTimeout(() => {
+                toast.classList.remove('active');
+            }, 4000); //1s = 1000 milliseconds
+
+            timer2 = setTimeout(() => {
+                progress.classList.remove('active');
+            }, 4300);
+
+            closeIcon.addEventListener('click', () => {
+                toast.classList.remove('active');
+                setTimeout(() => {
+                    progress.classList.remove('active');
+                }, 300);
+                clearTimeout(timer1);
+                clearTimeout(timer2);
+             
+            });
+            
+           setTimeout(() => {
+                    window.location.href='login.php';
+                }, 4500);
+        });
+        
+    </script>";
     } else {
       echo "<script>alert('Đăng ký không thành công');</script>";
     }
@@ -108,9 +193,7 @@ if (isset($_POST['dangky'])) {
         ?>
           <!-- Div cho trạng thái đã đăng nhập -->
           <div class="user-actions">
-            <a href="./liked.html" class="user-actions-liked">
-              <img src="./image/heart.png" alt="" />
-            </a>
+
 
             <a href="./cart.php">
               <img src="./image/cart.png" alt="" />
@@ -146,9 +229,7 @@ if (isset($_POST['dangky'])) {
       </div>
       <!-- Div cho trạng thái đã đăng nhập -->
       <div class="user-actions">
-        <a href="./liked.html" class="user-actions-liked">
-          <img src="./image/heart.png" alt="" />
-        </a>
+
 
         <a href="/cart.html">
           <img src="./image/cart.png" alt="" />

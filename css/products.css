@@ -508,6 +508,15 @@
 #filter-close {
     display: none;
 }
+
+.no-products {
+  margin: auto;
+  width: fit-content;
+  text-align: center;
+}
+.no-products img {
+  width: 400px;
+}
 @media (max-width: 1024px) {
   .product-list {
     grid-template-columns: 1fr 1fr;

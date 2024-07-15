@@ -16,7 +16,49 @@ if (isset($_POST['dangnhap'])) {
     $_SESSION['id_khachhang'] = $row['id_dangky'];
     header('Location:index.php');
   } else
-    echo "<script>alert('Đăng nhập không thành công')</script>";
+    echo "<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toast = document.createElement('div');
+            toast.className = 'toast active';
+            toast.innerHTML = `
+                <div class='toast-content'>
+                    <img src='./image/icons/false.png' class='close-image' />
+                    <div class='message'>
+                        <span class='text text-1'>Thất bại</span>
+                        <span class='text text-2'>Vui lòng xem lại tài khoản</span>
+                    </div>
+                </div>
+                <i class='fa-solid fa-xmark close'></i>
+                <div class='progress active'></div>
+            `;
+            document.body.appendChild(toast);
+            
+            const progress = toast.querySelector('.progress');
+            const closeIcon = toast.querySelector('.close');
+            let timer1, timer2;
+
+            timer1 = setTimeout(() => {
+                toast.classList.remove('active');
+            }, 5000); //1s = 1000 milliseconds
+
+            timer2 = setTimeout(() => {
+                progress.classList.remove('active');
+            }, 5300);
+
+            closeIcon.addEventListener('click', () => {
+                toast.classList.remove('active');
+                setTimeout(() => {
+                    progress.classList.remove('active');
+                }, 300);
+                clearTimeout(timer1);
+                clearTimeout(timer2);
+               
+            });
+            
+           
+        });
+        
+    </script>";
 }
 ?>
 
@@ -70,9 +112,7 @@ if (isset($_POST['dangnhap'])) {
         ?>
           <!-- Div cho trạng thái đã đăng nhập -->
           <div class="user-actions">
-            <a href="./liked.html" class="user-actions-liked">
-              <img src="./image/heart.png" alt="" />
-            </a>
+
 
             <a href="./cart.php">
               <img src="./image/cart.png" alt="" />
@@ -108,9 +148,7 @@ if (isset($_POST['dangnhap'])) {
       </div>
       <!-- Div cho trạng thái đã đăng nhập -->
       <div class="user-actions">
-        <a href="./liked.html" class="user-actions-liked">
-          <img src="./image/heart.png" alt="" />
-        </a>
+
 
         <a href="/cart.html">
           <img src="./image/cart.png" alt="" />

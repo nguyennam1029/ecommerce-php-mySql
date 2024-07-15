@@ -15,7 +15,31 @@ session_start();
 
   <link rel="stylesheet" href="./css/styles.css" />
   <link rel="stylesheet" href="./css/detail.css" />
+  <link rel="stylesheet" href="./css/noti.css" />
   <title>Detail</title>
+  <style>
+    .nav-link.active {
+      background: linear-gradient(to right, #ffffff, #ffffff) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent;
+      -webkit-box-decoration-break: clone;
+      font-weight: 500;
+    }
+
+    .active-false {
+      position: relative;
+    }
+
+    .active-false::before {
+      content: 'Vui lòng đăng kí';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #322d2d;
+    }
+  </style>
 </head>
 
 <body>
@@ -55,9 +79,7 @@ session_start();
         ?>
           <!-- Div cho trạng thái đã đăng nhập -->
           <div class="user-actions">
-            <a href="./liked.html" class="user-actions-liked">
-              <img src="./image/heart.png" alt="" />
-            </a>
+
 
             <a href="./cart.php">
               <img src="./image/cart.png" alt="" />
@@ -93,9 +115,7 @@ session_start();
       </div>
       <!-- Div cho trạng thái đã đăng nhập -->
       <div class="user-actions">
-        <a href="./liked.html" class="user-actions-liked">
-          <img src="./image/heart.png" alt="" />
-        </a>
+
 
         <a href="/cart.html">
           <img src="./image/cart.png" alt="" />
@@ -129,12 +149,29 @@ session_start();
       </li>
     </ul>
   </nav>
+
   <?php
   $sql_sp = "select * from tbl_sanpham where id_sanpham='$_GET[idsanpham] LIMIT 1'";
   $query_sp = mysqli_query($conn, $sql_sp);
   $row_sp = mysqli_fetch_array($query_sp);
 
   ?>
+  <?php if (isset($_GET['success'])) { ?>
+    <div class="noti">
+      <div class="noti-content">
+        <i class="">
+          <img src="./image/icons/success.png" /></i>
+        <div>
+          <p class="noti-title"><?php echo $_GET['success'] ?></p>
+          <p class="noti-des">
+            Đã thêm vào giỏ hàng của bạn
+          </p>
+        </div>
+
+
+      </div>
+    </div>
+  <?php } ?>
   <section>
     <div class="container">
       <div class="product-detail">
@@ -184,9 +221,13 @@ session_start();
               </div>
             </div>
             <div class="quantity btn-action">
-              <input type="submit" class="product-detail-btn-buynow btn-addtocart" value="Thêm giỏ hàng" name="themgiohang"></input>
-              <input type="submit" class="product-detail-btn-buynow" value="Mua Ngay" name="muangay"></input>
-
+              <?php if (isset($_SESSION['dangky'])) { ?>
+                <input type="submit" class="product-detail-btn-buynow btn-addtocart" value="Thêm giỏ hàng" name="themgiohang"></input>
+                <input type="submit" class="product-detail-btn-buynow" value="Mua ngay" name="muangay"></input>
+              <?php } else { ?>
+                <input type="button" class="product-detail-btn-buynow btn-addtocart add-cart--false" value="Thêm giỏ hàng"></input>
+                <input type="button" class="product-detail-btn-buynow add-cart--false" value="Mua ngay"></input>
+              <?php } ?>
             </div>
         </form>
         <div class="delivery">
@@ -354,9 +395,62 @@ session_start();
       </div>
     </div>
   </footer>
+  <!-- TOAST -->
+  <div class="toast">
+    <div class="toast-content">
+      <!-- <i class="fa-solid fa-triangle-exclamation"></i> -->
+      <img src="./image/icons/false.png" class="close-image" />
+
+      <div class="message">
+        <span class="text text-1">Thất bại</span>
+        <span class="text text-2">Vui lòng đăng kí để sử dụng tính năng</span>
+      </div>
+    </div>
+    <i class="fa-solid fa-xmark close"></i>
+
+    <div class="progress"></div>
+  </div>
+  <!-- END-TOAST  -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
   <script src="./js/app.js"></script>
   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const buttonToast = document.querySelectorAll(".add-cart--false");
+      const toast = document.querySelector(".toast");
+      const closeIcon = document.querySelector(".close-image");
+      const progress = document.querySelector(".progress");
+
+      let timer1, timer2;
+
+      buttonToast.forEach(button => {
+        button.addEventListener("click", () => {
+          toast.classList.add("active");
+          progress.classList.add("active");
+
+          timer1 = setTimeout(() => {
+            toast.classList.remove("active");
+          }, 5000); // 1s = 1000 milliseconds
+
+          timer2 = setTimeout(() => {
+            progress.classList.remove("active");
+          }, 5300);
+        });
+      });
+
+      closeIcon.addEventListener("click", () => {
+        toast.classList.remove("active");
+
+        setTimeout(() => {
+          progress.classList.remove("active");
+        }, 300);
+
+        clearTimeout(timer1);
+        clearTimeout(timer2);
+      });
+    });
+
+    // --END-TOAST
     function img(anything) {
       document.querySelector(".slide").src = anything;
     }

@@ -1,0 +1,85 @@
+.noti {
+    position          : fixed;
+    right             : 12px;
+    top               : 74px;
+border-radius: 8px;
+    background: #242C32;
+
+    box-shadow: 0px 16px 24px 0px rgba(0, 0, 0, 0.14), 0px 6px 30px 0px rgba(0, 0, 0, 0.12), 0px 8px 10px 0px rgba(0, 0, 0, 0.20);
+    border-radius     : 8px;
+    display           : flex;
+    transform         : translateX(150%);
+    animation         : noti 3s forwards 1 linear;
+    z-index           : 9999;
+    -webkit-transform : translateX(150%);
+    -moz-transform    : translateX(150%);
+    -ms-transform     : translateX(150%);
+    -o-transform      : translateX(150%);
+    -webkit-animation : noti 3s forwards 1 linear;
+    box-shadow        : -15px 17px 16px -12px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: -15px 17px 16px -12px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes noti {
+
+    20%,
+    80% {
+        transform        : translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform   : translateX(0);
+        -ms-transform    : translateX(0);
+        -o-transform     : translateX(0);
+    }
+
+    100% {
+        transform        : translateX(150%);
+        -webkit-transform: translateX(150%);
+        -moz-transform   : translateX(150%);
+        -ms-transform    : translateX(150%);
+        -o-transform     : translateX(150%);
+    }
+}
+
+
+.noti-content {
+    padding        : 12px 16px;
+    display        : flex;
+
+    align-items    : center;
+
+}
+
+.noti-content i {
+    color                       : #000000;
+    margin-right                : 8px;
+    background                  : rgb(0, 198, 7);
+    -webkit-background-clip     : text;
+    -webkit-text-fill-color     : transparent;
+    -webkit-box-decoration-break: clone;
+    animation                   : 1.2s ease infinite;
+}
+
+.noti-title {
+color: #FFF;
+
+    /* iOS/Regular/Headline */
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+    /* 129.412% */
+    letter-spacing: -0.408px;
+}
+.noti-des {
+    color: #C8C5C5;
+    
+        /* iOS/Regular/Footnote  */
+        /* font-family: "SF Pro Text"; */
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px;
+        /* 138.462% */
+        letter-spacing: -0.078px;
+}

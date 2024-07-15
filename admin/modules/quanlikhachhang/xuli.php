@@ -14,7 +14,7 @@ if (isset($_POST['suakhachhang'])) {
                     SET tenkhachhang='$tenkhachhang', email='$email', dienthoai='$dienthoai', diachi='$diachi' 
                     WHERE id_dangky='$idkhachhang'";
         mysqli_query($conn, $sql_sua);
-        header('Location:../../index.php?action=quanlikhachhang&query=lietke');
+        header('Location:../../index.php?action=quanlikhachhang&query=lietke&success=Cập nhật thông tin thành công');
     } else {
         // Nếu điều kiện không thỏa mãn, hiển thị thông báo lỗi
         echo "<script>alert('Tên khách hàng phải có độ dài lớn hơn 6 và có chữ cái đầu tiên viết hoa.')</script>";
@@ -24,5 +24,5 @@ if (isset($_POST['suakhachhang'])) {
     $id = $_GET['idkhachhang'];
     $sql_xoa = "DELETE FROM tbl_dangky WHERE id_dangky='$id'";
     mysqli_query($conn, $sql_xoa);
-    header('Location:../../index.php?action=quanlikhachhang&query=lietke');
+    header('Location:../../index.php?action=quanlikhachhang&query=lietke&success=Xóa người dùng thành công');
 }

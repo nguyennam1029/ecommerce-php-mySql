@@ -181,9 +181,6 @@ if (isset($_POST['themgiohang'])) {
         }
 
         // Thông báo thành công và chuyển hướng về trang giỏ hàng
-        echo '<script>
-    alert("Thêm sản phẩm vào giỏ hàng thành công!");
-    window.location = `detail.php?quanli=sanpham&idsanpham=' . $id . '`;
-</script>';
+        header('Location: detail.php?quanli=sanpham&idsanpham=' . $id . '&success=Thành công');
     }
 }
