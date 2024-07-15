@@ -14,6 +14,14 @@ session_start();
   <link rel="stylesheet" href="./css/styles.css" />
   <link rel="stylesheet" href="./css/products.css" />
   <title>Products</title>
+  <style>
+    .thanks-title {
+      color: #00d656;
+      font-size: 16px;
+      font-weight: 600;
+      margin-left: 6px;
+    }
+  </style>
 </head>
 
 <body>
@@ -128,8 +136,8 @@ session_start();
       <div class="thanks">
         <img src="./image/thanks.gif" alt="" />
         <div>
-          <h2>Đơn hàng của bạn sẻ được giao trong thời gian nhanh nhất</h2>
-          <p>Cảm ơn bạn đã tin tưởng chung tôi</p>
+          <h2>Đơn hàng của bạn sẽ được giao nhanh nhất có thể!</h2>
+          <p>Bạn có thể theo dõi trạng thái đơn hàng tại đây <a class="thanks-title" href="order.php">Đơn hàng</a>.</p>
         </div>
       </div>
     </div>
