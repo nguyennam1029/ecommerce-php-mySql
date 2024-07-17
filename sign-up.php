@@ -113,11 +113,11 @@ if (isset($_POST['dangky'])) {
 
             timer1 = setTimeout(() => {
                 toast.classList.remove('active');
-            }, 4000); //1s = 1000 milliseconds
+            }, 1700); //1s = 1000 milliseconds
 
             timer2 = setTimeout(() => {
                 progress.classList.remove('active');
-            }, 4300);
+            }, 1600);
 
             closeIcon.addEventListener('click', () => {
                 toast.classList.remove('active');
@@ -131,7 +131,7 @@ if (isset($_POST['dangky'])) {
             
            setTimeout(() => {
                     window.location.href='login.php';
-                }, 4500);
+                }, 1700);
         });
         
     </script>";

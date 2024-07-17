@@ -348,7 +348,35 @@ session_start();
       <div class="section_header">
         <h3 class="section_title">Duyệt theo Danh mục</h3>
       </div>
+
+      <?php
+
+      $sql = "SELECT id_danhmuc, tendanhmuc FROM tbl_danhmuc ORDER BY thutu";
+      $result = $conn->query($sql);
+      ?>
       <div class="categories">
+        <?php
+        if ($result->num_rows > 0) {
+          // Duyệt qua từng hàng kết quả
+          while ($row = $result->fetch_assoc()) {
+            // Tạo đường dẫn hình ảnh tương ứng với tên danh mục
+            $icon = strtolower($row['tendanhmuc']) . ".png";
+            echo '
+            <div class="category">
+                <a href="products.php?quanlidanhmucsanpham&id=' . $row['id_danhmuc'] . '">
+                    <img src="./image/icons/' . $icon . '" alt="' . $row['tendanhmuc'] . '" class="category_icon" />
+                    <p class="category_name">' . $row['tendanhmuc'] . '</p>
+                </a>
+            </div>';
+          }
+        } else {
+          echo '<p>No categories found.</p>';
+        }
+
+        ?>
+      </div>
+
+      <!-- <div class="categories">
         <div class="category">
           <a href="products.php?quanlidanhmucsanpham&id=3">
             <img src="./image/icons/camera.png" alt="" class="category_icon" />
@@ -384,7 +412,7 @@ session_start();
             <p class="category_name">Watches</p>
           </a>
         </div>
-      </div>
+      </div> -->
     </div>
   </section>
 
