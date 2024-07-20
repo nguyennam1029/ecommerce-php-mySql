@@ -228,11 +228,17 @@ if (isset($_GET['cart_status']) && isset($_GET['code'])) {
                                             <?php
                                             switch ($row['cart_status']) {
 
+                                                case '0':
+                                                    echo '<span class="inline-flex items-center px-3 py-1.5 rounded-full text-[14px] font-medium bg-[#00DF80] text-white"> Đã xử lý</span>';
+                                                    break;
                                                 case '1':
                                                     echo '<span class="inline-flex items-center px-3 py-1.5 rounded-full text-[14px] font-medium bg-[#FFD21E] text-gray-800"> Đang xử lý</span>';
                                                     break;
                                                 case '2':
                                                     echo '<span class="inline-flex items-center px-3 py-1.5 rounded-full text-[14px] font-medium bg-[#F04248] text-gray-800"> Đã hủy</span>';
+                                                    break;
+                                                case '3':
+                                                    echo '<span class="inline-flex items-center px-3 py-1.5 rounded-full text-[14px] font-medium bg-[#3680ff] text-white"> Đang vận chuyển</span>';
                                                     break;
                                             }
                                             ?>

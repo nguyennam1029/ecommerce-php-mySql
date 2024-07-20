@@ -513,6 +513,7 @@
   margin: auto;
   width: fit-content;
   text-align: center;
+  grid-column: 2;
 }
 .no-products img {
   width: 400px;
