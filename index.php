@@ -131,7 +131,7 @@ session_start();
           <div class="slide-item">
             <div>
               <p class="slide-item-des">Giao dịch tốt nhất trực tuyến trên đồng hồ thông minh</p>
-              <h2 class="slide-item-heading">ĐỒNG HỒ</h2>
+              <h2 class="slide-item-heading">ĐỒNG HỒ edit</h2>
               <p class="slide-item-label">GIẢM GIÁ LÊN ĐẾN 50%</p>
 
             </div>
@@ -160,6 +160,18 @@ session_start();
 
             </div>
             <img src="./image/slide4.png" alt="" />
+          </div>
+        </div>
+        <!-- ------- item ----  -->
+        <div class="swiper-slide">
+          <div class="slide-item">
+            <div>
+              <p class="slide-item-des">Giao dịch tốt nhất trực tuyến trên điện thoại thông minh</p>
+              <h2 class="slide-item-heading">ĐIỆN THOẠI</h2>
+              <p class="slide-item-label">GIẢM GIÁ LÊN ĐẾN 80%</p>
+
+            </div>
+            <img src="./image/slide2.jpg" alt="" />
           </div>
         </div>
         <!-- ------- item ----  -->

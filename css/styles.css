@@ -1003,6 +1003,7 @@ ul {
   border: none;
   outline: none;
   margin-bottom: 1.5rem;
+  cursor: pointer;
 }
 .form_link {
   color: var(--colo-white-1);

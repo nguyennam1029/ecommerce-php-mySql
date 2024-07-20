@@ -173,19 +173,20 @@ session_start();
               </select> -->
           </div>
 
-          <?php
-          $num_products = mysqli_num_rows($query_pro);
-          if ($num_products > 0) {
-            while ($row = mysqli_fetch_array($query_pro)) {
-              $randomNumber = rand(1, 100);
-              $giamgia = 0;
-              if ($row['giasp'] > 0) {
-                $giamgia = round(($row['giasp'] - $row['giaban']) / $row['giasp'] * 100, 2);
-              } else {
+          <div class="product-list">
+            <?php
+
+            $num_products = mysqli_num_rows($query_pro);
+            if ($num_products > 0) {
+              while ($row = mysqli_fetch_array($query_pro)) {
+                $randomNumber = rand(1, 100);
                 $giamgia = 0;
-              }
-          ?>
-              <div class="product-list">
+                if ($row['giasp'] > 0) {
+                  $giamgia = round(($row['giasp'] - $row['giaban']) / $row['giasp'] * 100, 2);
+                } else {
+                  $giamgia = 0;
+                }
+            ?>
 
                 <a href="./detail.php?quanli=sanpham&idsanpham=<?php echo $row['id_sanpham'] ?>" class="card">
                   <div class="card_top">
@@ -236,20 +237,20 @@ session_start();
                     </div>
                   </div>
                 </a>
-              </div>
 
-          <?php
-            }
-          } else {
-            echo '<div class="no-products"><img src="https://i.pinimg.com/originals/b5/a8/84/b5a88474a9a60cb4a961533481ee6b16.gif" alt="No products available" />
+
+            <?php
+              }
+            } else {
+              echo '<div class="no-products"><img src="https://i.pinimg.com/originals/b5/a8/84/b5a88474a9a60cb4a961533481ee6b16.gif" alt="No products available" />
               <p>
                 Không tìm thấy sản phẩm !
               </p>
               </div>';
-          }
-          ?>
+            }
+            ?>
 
-
+          </div>
 
 
         </main>
